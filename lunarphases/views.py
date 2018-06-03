@@ -1,7 +1,15 @@
 """lunarphases app views."""
-# from django.shortcuts import render
-from django.http import HttpResponse
+# import logging
+from django.http import (
+    HttpResponse,
+    # HttpResponseRedirect,
+)
+from django.template import loader
+# from django.urls import reverse
 from django.views import View
+from lunarphases.utils import get_current_lunar_phase
+
+# logger = logging.getLogger(__name__)
 
 
 class CurrentLunarPhaseView(View):
@@ -12,5 +20,12 @@ class CurrentLunarPhaseView(View):
     """
 
     def get(self, request):
-        # <view logic>
-        return HttpResponse('Hello moon')
+        template = loader.get_template('index.html')
+        lunar_phase, distance = get_current_lunar_phase()
+
+        context = {
+            'title': 'Hello moon',
+            'lunar_phase': lunar_phase
+        }
+
+        return HttpResponse(template.render(context, request))
