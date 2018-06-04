@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>
+      {% block title %}
+        pagosimple
+      {% endblock %}
+    </title>
+
+    {% block css %}
+      <!-- Skeleton -->
+      <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css" integrity="sha256-ECB9bbROLGm8wOoEbHcHRxlHgzGqYpDtNTgDTyDz0wg=" crossorigin="anonymous" /> -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" integrity="sha256-2YQRJMXD7pIAPHiXr0s+vlRWA7GYJEK0ARns7k2sbHY=" crossorigin="anonymous" />
+
+      <!-- fontawesome 5 -->
+      <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous"> -->
+
+      <style>
+        body{
+          background: black;
+          color: white;
+        }
+      </style>
+    {% endblock %}
+  </head>
+
+  <body>
+    <div class="container">
+      {% block content %}
+      {% endblock %}
+    </div>
+
+  </body>
+
+</html>
