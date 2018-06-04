@@ -20,11 +20,30 @@
       <!-- fontawesome 5 -->
       <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous"> -->
 
+      <!-- Google Fonts -->
+      <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet">
+
       <style>
         body{
           background: black;
           color: white;
+          font-family: 'Roboto Slab', serif;
         }
+
+        h1{
+          text-align: center;
+          margin: auto;
+          font-family: 'Gloria Hallelujah', cursive;
+        }
+
+        .footer{
+          display: block;
+          text-align: center;
+          margin: auto;
+          margin-top: 4rem;
+        }
+
       </style>
     {% endblock %}
   </head>
@@ -33,6 +52,14 @@
     <div class="container">
       {% block content %}
       {% endblock %}
+
+      {% block footer %}
+        <div class="footer">
+          calendariolunar.cl - created in June 2018 by <a href="#">Marcelo Cueto</a>
+        </div>
+
+      {% endblock %}
+
     </div>
 
   </body>
