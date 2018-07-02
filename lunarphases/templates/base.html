@@ -29,6 +29,7 @@
           background: black;
           color: white;
           font-family: 'Roboto Slab', serif;
+          background: #262a2f;
         }
 
         h1{
@@ -42,6 +43,30 @@
           text-align: center;
           margin: auto;
           margin-top: 4rem;
+        }
+
+        .day-list{
+          display: flex;
+          justify-content: center;
+        }
+
+        .day-list ul{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          list-style: none;
+        }
+
+        .day-list li{
+          margin: 0;
+          padding: 1rem 2rem;
+          border: 2px solid white;
+          font-weight: 700;
+        }
+
+        .day-list li.active{
+          font-size: 3rem;
+          border-width: 4px;
         }
 
       </style>

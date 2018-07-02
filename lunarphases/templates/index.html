@@ -1,12 +1,43 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
   <!-- <h1>
     {{ title }}
   </h1> -->
-  <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/20110319_Supermoon.jpg" style="display:block; margin:auto;"/>
+
+  <img src="{% static "lunarphases/img/lunarphases.svg" %}" alt="{{ lunar_phase }}" style="display:block; margin:auto;"/>
+
+  <div class="day-list">
+    <ul>
+      <li>
+        1
+      </li>
+      <li>
+        2
+      </li>
+      <li>
+        3
+      </li>
+      <li class="active">
+        4
+      </li>
+      <li>
+        5
+      </li>
+      <li>
+        6
+      </li>
+      <li>
+        7
+      </li>
+    </ul>
+
+  </div>
 
   <h1>
+    <!-- {{ now }} -->
+
     {{ lunar_phase }}
   </h1>
 {% endblock %}
