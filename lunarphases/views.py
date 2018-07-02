@@ -1,4 +1,5 @@
 """lunarphases app views."""
+import datetime
 # import logging
 from django.http import (
     HttpResponse,
@@ -21,11 +22,13 @@ class CurrentLunarPhaseView(View):
 
     def get(self, request):
         template = loader.get_template('index.html')
-        lunar_phase, distance = get_current_lunar_phase()
+        now = datetime.datetime.now()
+        lunar_phase, distance = get_current_lunar_phase(now)
 
         context = {
+            'now': now,
             'title': 'Hello moon',
-            'lunar_phase': lunar_phase
+            'lunar_phase': lunar_phase,
         }
 
         return HttpResponse(template.render(context, request))
