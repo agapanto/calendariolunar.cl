@@ -45,10 +45,10 @@ def phase(pos):
     }[int(index) & 7]
 
 
-def get_current_lunar_phase(now=None):
+def get_current_lunar_phase_data(now=None):
     pos = position(now)
     phasename = phase(pos)
 
     roundedpos = round(float(pos), 3)
 
-    return phasename, roundedpos
+    return phasename, pos, roundedpos
