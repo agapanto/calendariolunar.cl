@@ -1,7 +1,7 @@
 """lunarphases."""
 import datetime
 from .utils import (
-    get_current_lunar_phase_data,
+    get_lunar_phase_data,
 )
 
 
@@ -23,11 +23,13 @@ class LunarPhase:
         if reference_datetime is None:
             reference_datetime = datetime.datetime.now()
 
-        lunar_phase_data = get_current_lunar_phase_data(
+        lunar_phase_data = get_lunar_phase_data(
             reference_datetime
         )
 
-        self.datetime = reference_datetime
-        self.name = lunar_phase_data[0]
-        self.position = lunar_phase_data[1]
-        self.rounded_position = lunar_phase_data[2]
+        print(lunar_phase_data)
+
+        self.datetime = lunar_phase_data.get('datetime')
+        self.name = lunar_phase_data.get('name')
+        self.position = lunar_phase_data.get('position')
+        self.rounded_position = lunar_phase_data.get('rounded_position')

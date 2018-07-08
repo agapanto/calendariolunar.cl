@@ -17,7 +17,7 @@ from django.utils.translation import gettext as _
 dec = decimal.Decimal
 
 
-def position(now=None):
+def get_moon_position(now=None):
     """Get the current moon position."""
     if now is None:
         now = datetime.datetime.now()
@@ -45,10 +45,21 @@ def phase(pos):
     }[int(index) & 7]
 
 
-def get_current_lunar_phase_data(now=None):
-    pos = position(now)
-    phasename = phase(pos)
+def get_lunar_phase_data(now=None):
+    position = get_moon_position(now)
+    rounded_position = round(
+        float(position), 3
+    )
 
-    roundedpos = round(float(pos), 3)
+    phase_name = phase(position)
+    phase_code = phase_name.lower().replace(' ', '_')
 
-    return phasename, pos, roundedpos
+    lunar_phase_data = {
+        'datetime': now,
+        'code': phase_code,
+        'name': phase_name,
+        'position': position,
+        'rounded_position': rounded_position
+    }
+
+    return lunar_phase_data
