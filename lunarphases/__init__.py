@@ -1,4 +1,5 @@
 """lunarphases."""
+import datetime
 from .utils import (
     get_current_lunar_phase_data,
 )
@@ -13,16 +14,20 @@ class LunarPhase:
     datetime.datetime.now()
     """
 
-    def __init__(self, datetime=None):
+    def __init__(self, reference_datetime=None):
         """
         Initialize the current Lunar Phase instance.
 
-        When datetime is None, get_current_lunar_phase_data will use
-        datetime.datetime.now() automatically.
+        When datetime is None, datetime.datetime.now() will be used.
         """
-        lunar_phase_data = get_current_lunar_phase_data(datetime)
+        if reference_datetime is None:
+            reference_datetime = datetime.datetime.now()
 
-        self.datetime = datetime
+        lunar_phase_data = get_current_lunar_phase_data(
+            reference_datetime
+        )
+
+        self.datetime = reference_datetime
         self.name = lunar_phase_data[0]
         self.position = lunar_phase_data[1]
         self.rounded_position = lunar_phase_data[2]
