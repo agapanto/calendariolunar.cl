@@ -9,7 +9,7 @@
 
 
   {% with 'lunarphases/img/'|add:lunar_phase.code|add:'.svg' as lunar_phase_static %}
-    <img src="{% static lunar_phase_static %}" alt="{{ lunar_phase.name }}" style="display:block; margin:auto;"/>
+    <img src="{% static lunar_phase_static %}" alt="{{ lunar_phase.name }}" style="display:block; margin:auto; max-width: 100%;"/>
   {% endwith %}
 
 
