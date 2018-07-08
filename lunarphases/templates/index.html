@@ -6,7 +6,13 @@
     {{ title }}
   </h1> -->
 
-  <img src="{% static "lunarphases/img/lunarphases.svg" %}" alt="{{ lunar_phase }}" style="display:block; margin:auto;"/>
+
+
+  {% with 'lunarphases/img/'|add:lunar_phase.code|add:'.svg' as lunar_phase_static %}
+    <img src="{% static lunar_phase_static %}" alt="{{ lunar_phase.name }}" style="display:block; margin:auto;"/>
+  {% endwith %}
+
+
 
   <div class="day-list">
     <ul>
@@ -20,7 +26,7 @@
         3
       </li> -->
       <li class="active">
-        {{ now }}
+        {{ lunar_phase.datetime }}
       </li>
       <!-- <li>
         5
@@ -38,6 +44,6 @@
   <h1>
     <!-- {{ now }} -->
 
-    {{ lunar_phase }}
+    {{ lunar_phase.name }}
   </h1>
 {% endblock %}

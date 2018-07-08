@@ -24,9 +24,7 @@ class CurrentLunarPhaseView(View):
         lunar_phase = LunarPhase()
 
         context = {
-            'now': lunar_phase.datetime,
-            'title': 'Hello moon',
-            'lunar_phase': lunar_phase.name,
+            'lunar_phase': lunar_phase,
         }
 
         return HttpResponse(template.render(context, request))
