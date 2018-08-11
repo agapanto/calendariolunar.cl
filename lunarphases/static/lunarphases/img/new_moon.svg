@@ -15,7 +15,7 @@
    version="1.1"
    id="svg8"
    inkscape:version="0.92.2 2405546, 2018-03-11"
-   sodipodi:docname="1.svg">
+   sodipodi:docname="new_moon.svg">
   <defs
      id="defs2" />
   <sodipodi:namedview
@@ -26,7 +26,7 @@
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.4142136"
-     inkscape:cx="167.40255"
+     inkscape:cx="193.5655"
      inkscape:cy="225.74596"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
@@ -34,10 +34,10 @@
      units="cm"
      showguides="true"
      inkscape:guide-bbox="true"
-     inkscape:window-width="1366"
-     inkscape:window-height="768"
-     inkscape:window-x="0"
-     inkscape:window-y="0"
+     inkscape:window-width="1311"
+     inkscape:window-height="704"
+     inkscape:window-x="55"
+     inkscape:window-y="30"
      inkscape:window-maximized="1"
      inkscape:lockguides="false" />
   <metadata
@@ -48,7 +48,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -70,7 +70,7 @@
      id="layer2"
      inkscape:label="25%"
      transform="translate(0,-159.4)"
-     style="display:inline">
+     style="display:none">
     <path
        style="fill:#f9f9f9;fill-opacity:1;stroke-width:0.26458332"
        d="m 38.929405,184.11692 a 40.632438,40.632438 0 0 0 -19.121313,34.41341 40.632438,40.632438 0 0 0 19.121313,34.4444 z"
