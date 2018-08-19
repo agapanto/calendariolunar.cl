@@ -32,5 +32,4 @@ class LunarPhase:
         self.datetime = lunar_phase_data.get('datetime')
         self.code = lunar_phase_data.get('code')
         self.name = lunar_phase_data.get('name')
-        self.position = lunar_phase_data.get('position')
-        self.rounded_position = lunar_phase_data.get('rounded_position')
+        self.moon_phase_day = lunar_phase_data.get('moon_phase_day')

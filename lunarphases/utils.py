@@ -9,57 +9,43 @@ by Sean B. Palmer, from inamidst.com
 To the copied code, i have added translations using gettext to display it
 correctly on different languages.
 """
-import datetime
-import decimal
-import math
+# import datetime
+from astral import Astral
 from django.utils.translation import gettext as _
 
-dec = decimal.Decimal
 
+def get_lunar_phasename_from_day(day):
+    phasename = ''
 
-def get_moon_position(now=None):
-    """Get the current moon position."""
-    if now is None:
-        now = datetime.datetime.now()
+    if day >= 0 and day < 7:
+        phasename = _('New Moon')
 
-    diff = now - datetime.datetime(2001, 1, 1)
-    days = dec(diff.days) + (dec(diff.seconds) / dec(86400))
-    lunations = dec("0.20439731") + (days * dec("0.03386319269"))
+    elif day >= 7 and day < 14:
+        phasename = _('First Quarter')
 
-    return lunations % dec(1)
+    elif day >= 14 and day < 21:
+        phasename = _('Full Moon')
 
+    else:
+        phasename = _('Last Quarter')
 
-def phase(pos):
-    """Get the current moon phase."""
-    index = (pos * dec(8)) + dec("0.5")
-    index = math.floor(index)
-    return {
-      0: _("New Moon"),
-      1: _("Waxing Crescent"),
-      2: _("First Quarter"),
-      3: _("Waxing Gibbous"),
-      4: _("Full Moon"),
-      5: _("Waning Gibbous"),
-      6: _("Last Quarter"),
-      7: _("Waning Crescent")
-    }[int(index) & 7]
+    return phasename
 
 
 def get_lunar_phase_data(now=None):
-    position = get_moon_position(now)
-    rounded_position = round(
-        float(position), 3
+    astral = Astral()
+    moon_phase_day = astral.moon_phase(
+        date=now
     )
 
-    phase_name = phase(position)
+    phase_name = get_lunar_phasename_from_day(moon_phase_day)
     phase_code = phase_name.lower().replace(' ', '_')
 
     lunar_phase_data = {
         'datetime': now,
         'code': phase_code,
         'name': phase_name,
-        'position': position,
-        'rounded_position': rounded_position
+        'moon_phase_day': moon_phase_day
     }
 
     return lunar_phase_data
