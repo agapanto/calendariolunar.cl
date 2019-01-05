@@ -7,12 +7,12 @@
   </h1> -->
 
   <div class="moon">
-    <svg height="400" width="200" class="moon-left">
-      <circle cx="200" cy="200" r="200" stroke="#45484B" fill="#45484B" class="bg"/>
-      <circle cx="200" cy="200" r="200" stroke="#45484B" fill="#45484B" class="fg"/>
-    </svg><svg height="400" width="200" class="moon-right">
-      <circle cx="0" cy="200" r="200" stroke="#45484B" fill="#45484B" class="bg"/>
-      <circle cx="0" cy="200" r="200" stroke="#45484B" fill="#45484B" class="fg"/>
+    <svg height="300" width="150" class="moon-left">
+      <circle cx="150" cy="150" r="150" stroke="#45484B" fill="#45484B" class="bg"/>
+      <circle cx="150" cy="150" r="150" stroke="#45484B" fill="#45484B" class="fg"/>
+    </svg><svg height="300" width="150" class="moon-right">
+      <circle cx="0" cy="150" r="150" stroke="#45484B" fill="#45484B" class="bg"/>
+      <circle cx="0" cy="150" r="150" stroke="#45484B" fill="#45484B" class="fg"/>
     </svg>
   </div>
 
@@ -131,7 +131,7 @@
         phaseRight = 0;
 
     if(phase <= (current_moon_size/2)) {
-      phaseRight = (1-phase/200);
+      phaseRight = (1-phase/(current_moon_size/2));
     }
     jQuery('.moon-right .fg').css({
       'transform':'scaleX(' + phaseRight + ')'
