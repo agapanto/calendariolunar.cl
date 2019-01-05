@@ -21,21 +21,25 @@
       <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous"> -->
 
       <!-- Google Fonts -->
-      <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
-      <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Staatliches" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Viga" rel="stylesheet">
+
 
       <style>
         body{
-          background: black;
+          /* background: black; */
           color: white;
-          font-family: 'Roboto Slab', serif;
-          background: #262a2f;
+          font-family: 'Viga', sans-serif;
+          background: #36393B;
         }
 
-        h1{
+        h1, h2, h3, h4, h5, h6{
+          font-family: 'Staatliches', cursive;
+        }
+
+        .centered{
           text-align: center;
           margin: auto;
-          font-family: 'Gloria Hallelujah', cursive;
         }
 
         .footer{
@@ -69,7 +73,42 @@
           border-width: 4px;
         }
 
+        .moon-left .bg,.moon-right .bg, .moon-left .fg, .moon-right .fg {
+          stroke-width:2px;
+        }
+
+        .moon {width:400px;margin:2rem auto;}
+
+        .moon-left,.moon-right {
+          display:inline-block;
+          width:200px;
+          position:relative;
+          margin:0;
+        }
+        .moon-left .bg,.moon-right .bg {
+          stroke-width:2px;
+        }
+
+        .moon-right .fg {
+          stroke-width:2px;
+        }
+        .moon-left .bg {
+          fill: #45484B;
+        }
+        .moon-left .fg {
+          fill: #EEE6AB; transform-origin: 0% 0%;
+        }
+
+        .moon-right .fg {
+          transform: scaleX(1);
+        }
+        .moon-left .fg {
+          transform: scaleX(0) translateX(0);
+        }
       </style>
+    {% endblock %}
+
+    {% block js %}
     {% endblock %}
   </head>
 

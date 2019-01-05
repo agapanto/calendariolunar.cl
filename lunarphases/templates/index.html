@@ -6,40 +6,145 @@
     {{ title }}
   </h1> -->
 
+  <div class="moon">
+    <svg height="400" width="200" class="moon-left">
+      <circle cx="200" cy="200" r="200" stroke="#45484B" fill="#45484B" class="bg"/>
+      <circle cx="200" cy="200" r="200" stroke="#45484B" fill="#45484B" class="fg"/>
+    </svg><svg height="400" width="200" class="moon-right">
+      <circle cx="0" cy="200" r="200" stroke="#45484B" fill="#45484B" class="bg"/>
+      <circle cx="0" cy="200" r="200" stroke="#45484B" fill="#45484B" class="fg"/>
+    </svg>
+  </div>
 
-
+  <div class="centered">
+    <h1>
+      CALENDARIOLUNAR.CL
+    </h1>
+  </div>
 
 
   <div class="day-list">
     <ul>
-      <!-- <li>
-        1
-      </li>
-      <li>
-        2
-      </li>
-      <li>
-        3
-      </li> -->
       <li class="active">
         {{ lunar_phase.datetime }}
       </li>
-      <!-- <li>
-        5
-      </li>
-      <li>
-        6
-      </li>
-      <li>
-        7
-      </li> -->
     </ul>
 
   </div>
 
-  <h1>
-    <!-- {{ now }} -->
+  <div class="centered">
+    <h3>
+      Current Moon Phase: {{ lunar_phase.name }}
+    </h3>
+  </div>
 
-    {{ lunar_phase.name }}
-  </h1>
+{% endblock %}
+
+{% block js %}
+  <script
+  			  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  			  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  			  crossorigin="anonymous">
+  </script>
+  <script>
+  $(function(){
+    var current_phase = {{ lunar_phase.moon_phase_day | safe }};
+    var moon_size = calculateMoonSize(current_phase);
+    var moon_colors = calculateMoonColors(current_phase);
+
+    updateMoon(moon_size, moon_colors);
+  });
+
+
+  // Math.radians = function(degrees) {
+  //   return degrees * Math.PI / 180;
+  // };
+
+  const max_phase = 27;
+  const fullmoon_phase = 14;
+
+  function calculateMoonSize(phase){
+    var current_moon_size = $('.moon').width();
+    var calculated_moonlight_size = 0;
+
+    var moonlight_percentage =  100 * phase / fullmoon_phase;
+
+    if (moonlight_percentage <= 100){
+      calculated_moonlight_size = current_moon_size * moonlight_percentage / 100;
+    }
+    else{
+      calculated_moonlight_size = current_moon_size * (moonlight_percentage - 100) / 100;
+    }
+
+    return calculated_moonlight_size;
+  }
+
+  function calculateMoonColors(phase){
+    const moon_color = '#45484B';
+    const moonlight_color = '#EEE6AB';
+
+    var colors = {
+      'moon': moon_color,
+      'moonlight': moonlight_color
+    };
+
+    if (phase <= fullmoon_phase){
+      colors.moon = moon_color;
+      colors.moonlight = moonlight_color;
+    }
+    else{
+      colors.moon = moonlight_color;
+      colors.moonlight = moon_color;
+    }
+
+    return colors;
+  }
+
+  function updateMoonColors(colors){
+    // moon-left
+    $('.moon-left .bg').css({
+      'stroke':colors.moon,
+      'fill':colors.moon
+    });
+    $('.moon-left .fg').css({
+      'stroke':colors.moonlight,
+      'fill':colors.moonlight
+    });
+    // moon-right
+    $('.moon-right .bg').css({
+      'stroke':colors.moonlight,
+      'fill':colors.moonlight
+    });
+    $('.moon-right .fg').css({
+      'stroke':colors.moon,
+      'fill':colors.moon
+    });
+
+  }
+
+  function updateMoon(phase, colors){
+    var current_moon_size = $('.moon').width();
+    updateMoonColors(colors);
+
+    var phaseScale = 1,
+        phaseTrans = (current_moon_size/2),
+        phaseRight = 0;
+
+    if(phase <= (current_moon_size/2)) {
+      phaseRight = (1-phase/200);
+    }
+    jQuery('.moon-right .fg').css({
+      'transform':'scaleX(' + phaseRight + ')'
+    });
+
+    if(phase >= (current_moon_size/2)) {
+      phaseScale = (1-(phase-(current_moon_size/2))/(current_moon_size/2));
+      phaseTrans = (current_moon_size/2)*phaseScale;
+    }
+    jQuery('.moon-left .fg').css({
+      'transform':'translate('+phaseTrans+'px,0) scaleX(' + (1-phaseScale) + ')'
+    });
+  }
+
+  </script>
 {% endblock %}
