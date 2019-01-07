@@ -17,17 +17,32 @@ from django.utils.translation import gettext as _
 def get_lunar_phasename_from_day(day):
     phasename = ''
 
-    if day >= 0 and day < 7:
+    if day == 0:
         phasename = _('New Moon')
 
-    elif day >= 7 and day < 14:
+    elif day >= 1 and day < 7:
+        phasename = _('Waxing Crescent')
+
+    elif day == 7:
         phasename = _('First Quarter')
 
-    elif day >= 14 and day < 21:
+    elif day >= 8 and day < 14:
+        phasename = _('Waxing Gibbous')
+
+    elif day == 14:
         phasename = _('Full Moon')
 
-    else:
+    elif day >= 15 and day < 21:
+        phasename = _('Waning Gibbous')
+
+    elif day == 21:
         phasename = _('Last Quarter')
+
+    elif day >= 22 and day < 27:
+        phasename = _('Waning Crescent')
+
+    else:
+        pass
 
     return phasename
 
