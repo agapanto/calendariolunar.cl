@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load i18n %}
 
 {% block content %}
   <!-- <h1>
@@ -34,7 +35,7 @@
 
   <div class="centered">
     <h3>
-      Current Moon Phase: {{ lunar_phase.name }}
+      {% trans 'Current Moon Phase' %}: {% trans lunar_phase.name %}
     </h3>
   </div>
 
