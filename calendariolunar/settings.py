@@ -126,6 +126,11 @@ PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
 STATIC_URL = '/static/'
 
+# Locale paths for translation files
+LOCALE_PATHS = (
+    os.path.join(PROJECT_ROOT, '../locale'),
+)
+
 # whitenoise
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
