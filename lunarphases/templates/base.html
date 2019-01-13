@@ -113,6 +113,13 @@
         .moon-left .fg {
           transform: scaleX(0) translateX(0);
         }
+
+        .fb-like{
+          display: block !important;
+          margin: auto;
+          width: 300px;
+        }
+
       </style>
     {% endblock %}
 
@@ -121,9 +128,20 @@
   </head>
 
   <body>
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = 'https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v3.2&appId=2114020585515606&autoLogAppEvents=1';
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+
     <div class="container">
       {% block content %}
       {% endblock %}
+
+      <div class="fb-like" data-href="https://www.facebook.com/calendariolunarcl/" data-width="300" data-layout="standard" data-action="like" data-size="large" data-show-faces="true" data-share="true" colorscheme="dark"></div>
 
       {% block footer %}
         <div class="footer">
