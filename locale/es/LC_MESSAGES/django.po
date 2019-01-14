@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-07 02:19+0000\n"
-"PO-Revision-Date: 2018-07-01 23:05-0400\n"
+"PO-Revision-Date: 2019-01-14 20:52-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: es\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.0.8\n"
+"X-Generator: Poedit 2.2\n"
 
 #: lunarphases/templates/index.html:38
 msgid "Current Moon Phase"
@@ -36,7 +36,7 @@ msgstr "Cuarto Creciente"
 
 #: lunarphases/utils.py:30
 msgid "Waxing Gibbous"
-msgstr "Luna Menguante"
+msgstr "Gibosa Creciente"
 
 #: lunarphases/utils.py:33
 msgid "Full Moon"
@@ -44,13 +44,12 @@ msgstr "Luna Llena"
 
 #: lunarphases/utils.py:36
 msgid "Waning Gibbous"
-msgstr "Menguante Gibosa"
+msgstr "Gibosa Menguante"
 
 #: lunarphases/utils.py:39
 msgid "Last Quarter"
 msgstr "Cuarto menguante"
 
 #: lunarphases/utils.py:42
-#, fuzzy
 msgid "Waning Crescent"
-msgstr "Creciente Menguante"
+msgstr "Menguante"
