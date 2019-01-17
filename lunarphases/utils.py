@@ -47,6 +47,39 @@ def get_lunar_phasename_from_day(day):
     return phasename
 
 
+def get_lunar_phasecode_from_day(day):
+    phase_code = ''
+
+    if day == 0:
+        phase_code = 'new_moon'
+
+    elif day >= 1 and day < 7:
+        phase_code = 'waxing_crescent'
+
+    elif day == 7:
+        phase_code = 'first_quarter'
+
+    elif day >= 8 and day < 14:
+        phase_code = 'waxing_gibbous'
+
+    elif day == 14:
+        phase_code = 'full_moon'
+
+    elif day >= 15 and day < 21:
+        phase_code = 'waning_gibbous'
+
+    elif day == 21:
+        phase_code = 'last_quarter'
+
+    elif day >= 22 and day < 27:
+        phase_code = 'waning_crescent'
+
+    else:
+        pass
+
+    return phase_code
+
+
 def get_lunar_phase_data(now=None):
     astral = Astral()
     moon_phase_day = astral.moon_phase(
@@ -54,7 +87,7 @@ def get_lunar_phase_data(now=None):
     )
 
     phase_name = get_lunar_phasename_from_day(moon_phase_day)
-    phase_code = phase_name.lower().replace(' ', '_')
+    phase_code = get_lunar_phasecode_from_day(moon_phase_day)
 
     lunar_phase_data = {
         'datetime': now,
