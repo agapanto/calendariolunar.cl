@@ -14,39 +14,6 @@ from astral import Astral
 from django.utils.translation import gettext as _
 
 
-def get_lunar_phasename_from_day(day):
-    phasename = ''
-
-    if day == 0:
-        phasename = _('New Moon')
-
-    elif day >= 1 and day < 7:
-        phasename = _('Waxing Crescent')
-
-    elif day == 7:
-        phasename = _('First Quarter')
-
-    elif day >= 8 and day < 14:
-        phasename = _('Waxing Gibbous')
-
-    elif day == 14:
-        phasename = _('Full Moon')
-
-    elif day >= 15 and day < 21:
-        phasename = _('Waning Gibbous')
-
-    elif day == 21:
-        phasename = _('Last Quarter')
-
-    elif day >= 22 and day < 27:
-        phasename = _('Waning Crescent')
-
-    else:
-        pass
-
-    return phasename
-
-
 def get_lunar_phasecode_from_day(day):
     phase_code = ''
 
@@ -80,14 +47,29 @@ def get_lunar_phasecode_from_day(day):
     return phase_code
 
 
+def get_lunar_phasename_from_code(code):
+    phasenames = {
+        'new_moon': _('New Moon'),
+        'waxing_crescent': _('Waxing Crescent'),
+        'first_quarter': _('First Quarter'),
+        'waxing_gibbous': _('Waxing Gibbous'),
+        'full_moon': _('Full Moon'),
+        'waning_gibbous': _('Waning Gibbous'),
+        'last_quarter': _('Last Quarter'),
+        'waning_crescent': _('Waning Crescent'),
+    }
+
+    return phasenames[code]
+
+
 def get_lunar_phase_data(now=None):
     astral = Astral()
     moon_phase_day = astral.moon_phase(
         date=now
     )
 
-    phase_name = get_lunar_phasename_from_day(moon_phase_day)
     phase_code = get_lunar_phasecode_from_day(moon_phase_day)
+    phase_name = get_lunar_phasename_from_code(phase_code)
 
     lunar_phase_data = {
         'datetime': now,
