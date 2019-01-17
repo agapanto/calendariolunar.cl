@@ -97,3 +97,45 @@ def get_lunar_phase_data(now=None):
     }
 
     return lunar_phase_data
+
+
+def get_lunar_phase_tips(lunar_phase):
+    tips = []
+
+    if lunar_phase.code == 'new_moon':
+        pass
+
+    elif lunar_phase.code == 'waxing_crescent':
+        pass
+
+    elif lunar_phase.code == 'first_quarter':
+        pass
+
+    elif lunar_phase.code == 'waxing_gibbous':
+        tip = {
+            'title': 'Siembra plantas con flores o frutos',
+            'message': 'Es recomendable sembrar aquellas plantas que cultivaremos con el fin de aprovechar sus flores o frutos.'
+        }
+
+        tips.append(tip)
+
+        tip = {
+            'title': 'NO realices podas',
+            'message': 'No es un buen día para podar tus plantas, debido a que podria suponerles un stress innecesario.'
+        }
+
+        tips.append(tip)
+
+    elif lunar_phase.code == 'full_moon':
+        pass
+
+    elif lunar_phase.code == 'waning_gibbous':
+        pass
+
+    elif lunar_phase.code == 'last_quarter':
+        pass
+
+    elif lunar_phase.code == 'waning_crescent':
+        pass
+
+    return tips

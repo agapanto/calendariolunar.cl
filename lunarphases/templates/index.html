@@ -39,6 +39,25 @@
     </h3>
   </div>
 
+  <hr style="border-style: dashed;" />
+
+  <div class="centered">
+    <h3>
+        <i class="fab fa-pagelines"></i> Consejos de cultivo
+    </h3>
+    <p class="justified">
+      <ul class="justified">
+          {% for tip in tips %}
+            <li class="justified">
+              <b>{{ tip.title }}:</b> {{ tip.message }}
+            </li>
+          {% endfor %}
+      </ul>
+    </p>
+  </div>
+
+  <hr style="border-style: dashed;" />
+
 {% endblock %}
 
 {% block js %}
