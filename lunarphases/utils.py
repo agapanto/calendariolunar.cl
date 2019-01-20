@@ -109,7 +109,19 @@ def get_lunar_phase_tips(lunar_phase):
         tips.append(tip)
 
     elif lunar_phase.code == 'full_moon':
-        pass
+        tip = {
+            'title': 'Cosecha frutos o flores',
+            'message': 'Hoy la luna se encuentra en su máxima potencia y toda la savia se concentra en la parte superior de las plantas, por lo tanto es un buen día para cosechar flores o frutos que estén maduros.'
+        }
+
+        tips.append(tip)
+
+        tip = {
+            'title': 'Puedes realizar esquejes',
+            'message': 'Si realizas un esqueje hoy, éste tendrá más energia y por lo tanto será más probable que enraice y genere una nueva planta.'
+        }
+
+        tips.append(tip)
 
     elif lunar_phase.code == 'waning_gibbous':
         pass
