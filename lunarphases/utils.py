@@ -82,54 +82,71 @@ def get_lunar_phase_data(now=None):
 
 
 def get_lunar_phase_tips(lunar_phase):
-    tips = []
+    tips = {
+        'new_moon': [
+            {
+                'title': '',
+                'message': '',
+            }
+        ],
+        'waxing_crescent': [
+            {
+                'title': '',
+                'message': '',
+            }
+        ],
+        'first_quarter': [
+            {
+                'title': '',
+                'message': '',
+            }
+        ],
+        'waxing_gibbous': [
+            {
+                'title': 'Siembra y cosecha plantas con flores o frutos',
+                'message': 'Es recomendable sembrar y cosechar aquellas plantas que cultivamos con el fin de aprovechar sus flores o frutos.'
+            },
+            {
+                'title': 'NO realices podas',
+                'message': 'No es un buen día para podar tus plantas, debido a que podria suponerles un stress innecesario.',
+            },
+        ],
+        'full_moon': [
+            {
+                'title': 'Cosecha frutos o flores',
+                'message': 'Hoy la luna se encuentra en su máxima potencia y toda la savia se concentra en la parte superior de las plantas, por lo tanto es un buen día para cosechar flores o frutos que estén maduros.'
+            },
+            {
+                'title': 'Puedes realizar esquejes',
+                'message': 'Si realizas un esqueje hoy, éste tendrá más energia y por lo tanto será más probable que enraice y genere una nueva planta.'
+            },
+        ],
+        'waning_gibbous': [
+            {
+                'title': 'Siembra y cosecha plantas de raices u hojas',
+                'message': 'Es recomendable sembrar y cosechar aquellas plantas que cultivamos con el fin de aprovechar sus raices y hojas.'
+            },
+        ],
+        'last_quarter': [
+            {
+                'title': 'Siembra y cosecha plantas de raices u hojas',
+                'message': 'Es recomendable sembrar y cosechar aquellas plantas que cultivamos con el fin de aprovechar sus raices y hojas.'
+            },
+            {
+                'title': 'Puedes podar tus plantas',
+                'message': 'Si podas tus plantas hoy, estas responderán mejor a la poda y les causarás menos stress.',
+            },
+        ],
+        'waning_crescent': [
+            {
+                'title': 'Siembra y cosecha plantas de raices u hojas',
+                'message': 'Es recomendable sembrar y cosechar aquellas plantas que cultivamos con el fin de aprovechar sus raices y hojas.'
+            },
+            {
+                'title': 'Puedes podar tus plantas',
+                'message': 'Si podas tus plantas hoy, estas responderán mejor a la poda y les causarás menos stress.',
+            },
+        ],
+    }
 
-    if lunar_phase.code == 'new_moon':
-        pass
-
-    elif lunar_phase.code == 'waxing_crescent':
-        pass
-
-    elif lunar_phase.code == 'first_quarter':
-        pass
-
-    elif lunar_phase.code == 'waxing_gibbous':
-        tip = {
-            'title': 'Siembra plantas con flores o frutos',
-            'message': 'Es recomendable sembrar aquellas plantas que cultivaremos con el fin de aprovechar sus flores o frutos.'
-        }
-
-        tips.append(tip)
-
-        tip = {
-            'title': 'NO realices podas',
-            'message': 'No es un buen día para podar tus plantas, debido a que podria suponerles un stress innecesario.'
-        }
-
-        tips.append(tip)
-
-    elif lunar_phase.code == 'full_moon':
-        tip = {
-            'title': 'Cosecha frutos o flores',
-            'message': 'Hoy la luna se encuentra en su máxima potencia y toda la savia se concentra en la parte superior de las plantas, por lo tanto es un buen día para cosechar flores o frutos que estén maduros.'
-        }
-
-        tips.append(tip)
-
-        tip = {
-            'title': 'Puedes realizar esquejes',
-            'message': 'Si realizas un esqueje hoy, éste tendrá más energia y por lo tanto será más probable que enraice y genere una nueva planta.'
-        }
-
-        tips.append(tip)
-
-    elif lunar_phase.code == 'waning_gibbous':
-        pass
-
-    elif lunar_phase.code == 'last_quarter':
-        pass
-
-    elif lunar_phase.code == 'waning_crescent':
-        pass
-
-    return tips
+    return tips[lunar_phase.code]
