@@ -82,6 +82,37 @@ def get_lunar_phase_data(now=None):
 
 
 def get_lunar_phase_tips(lunar_phase):
+
+    PLANT_HARVERST_FLOWER_AND_FRUITS = {
+        'title': 'Siembra y cosecha plantas con flores o frutos',
+        'message': 'Es recomendable sembrar y cosechar aquellas plantas que cultivamos con el fin de aprovechar sus flores o frutos.'
+    }
+
+    PLANT_HARVERST_ROOTS_AND_LEAFS = {
+        'title': 'Siembra y cosecha plantas de raices u hojas',
+        'message': 'Es recomendable sembrar y cosechar aquellas plantas que cultivamos con el fin de aprovechar sus raices y hojas.'
+    }
+
+    HARVEST_FLOWER_AND_FRUITS = {
+        'title': 'Cosecha frutos o flores',
+        'message': 'Hoy la luna se encuentra en su máxima potencia y toda la savia se concentra en la parte superior de las plantas, por lo tanto es un buen día para cosechar flores o frutos que estén maduros.'
+    }
+
+    DONT_PRUNE = {
+        'title': 'NO realices podas',
+        'message': 'No es un buen día para podar tus plantas, debido a que podria suponerles un stress innecesario.',
+    }
+
+    CAN_PRUNE = {
+        'title': 'Puedes podar tus plantas',
+        'message': 'Si podas tus plantas hoy, estas responderán mejor a la poda y les causarás menos stress.',
+    }
+
+    CAN_MAKE_CUTTINGS = {
+        'title': 'Puedes realizar esquejes',
+        'message': 'Si realizas un esqueje hoy, éste tendrá más energia y por lo tanto será más probable que enraice y genere una nueva planta.'
+    }
+
     tips = {
         'new_moon': [
             {
@@ -102,50 +133,23 @@ def get_lunar_phase_tips(lunar_phase):
             }
         ],
         'waxing_gibbous': [
-            {
-                'title': 'Siembra y cosecha plantas con flores o frutos',
-                'message': 'Es recomendable sembrar y cosechar aquellas plantas que cultivamos con el fin de aprovechar sus flores o frutos.'
-            },
-            {
-                'title': 'NO realices podas',
-                'message': 'No es un buen día para podar tus plantas, debido a que podria suponerles un stress innecesario.',
-            },
+            PLANT_HARVERST_FLOWER_AND_FRUITS,
+            DONT_PRUNE,
         ],
         'full_moon': [
-            {
-                'title': 'Cosecha frutos o flores',
-                'message': 'Hoy la luna se encuentra en su máxima potencia y toda la savia se concentra en la parte superior de las plantas, por lo tanto es un buen día para cosechar flores o frutos que estén maduros.'
-            },
-            {
-                'title': 'Puedes realizar esquejes',
-                'message': 'Si realizas un esqueje hoy, éste tendrá más energia y por lo tanto será más probable que enraice y genere una nueva planta.'
-            },
+            HARVEST_FLOWER_AND_FRUITS,
+            CAN_MAKE_CUTTINGS,
         ],
         'waning_gibbous': [
-            {
-                'title': 'Siembra y cosecha plantas de raices u hojas',
-                'message': 'Es recomendable sembrar y cosechar aquellas plantas que cultivamos con el fin de aprovechar sus raices y hojas.'
-            },
+            PLANT_HARVERST_ROOTS_AND_LEAFS,
         ],
         'last_quarter': [
-            {
-                'title': 'Siembra y cosecha plantas de raices u hojas',
-                'message': 'Es recomendable sembrar y cosechar aquellas plantas que cultivamos con el fin de aprovechar sus raices y hojas.'
-            },
-            {
-                'title': 'Puedes podar tus plantas',
-                'message': 'Si podas tus plantas hoy, estas responderán mejor a la poda y les causarás menos stress.',
-            },
+            PLANT_HARVERST_ROOTS_AND_LEAFS,
+            CAN_PRUNE,
         ],
         'waning_crescent': [
-            {
-                'title': 'Siembra y cosecha plantas de raices u hojas',
-                'message': 'Es recomendable sembrar y cosechar aquellas plantas que cultivamos con el fin de aprovechar sus raices y hojas.'
-            },
-            {
-                'title': 'Puedes podar tus plantas',
-                'message': 'Si podas tus plantas hoy, estas responderán mejor a la poda y les causarás menos stress.',
-            },
+            PLANT_HARVERST_ROOTS_AND_LEAFS,
+            CAN_PRUNE,
         ],
     }
 
