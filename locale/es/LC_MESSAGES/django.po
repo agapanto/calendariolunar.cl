@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-07 02:19+0000\n"
-"PO-Revision-Date: 2019-01-14 20:52-0300\n"
+"POT-Creation-Date: 2019-01-22 09:32+0000\n"
+"PO-Revision-Date: 2019-01-22 06:33-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: es\n"
@@ -22,34 +22,38 @@ msgstr ""
 msgid "Current Moon Phase"
 msgstr "Fase Lunar Actual"
 
-#: lunarphases/utils.py:21
+#: lunarphases/templates/index.html:46
+msgid "Crop tips"
+msgstr "Consejos de cultivo"
+
+#: lunarphases/utils.py:52
 msgid "New Moon"
 msgstr "Luna Nueva"
 
-#: lunarphases/utils.py:24
+#: lunarphases/utils.py:53
 msgid "Waxing Crescent"
 msgstr "Luna Creciente"
 
-#: lunarphases/utils.py:27
+#: lunarphases/utils.py:54
 msgid "First Quarter"
 msgstr "Cuarto Creciente"
 
-#: lunarphases/utils.py:30
+#: lunarphases/utils.py:55
 msgid "Waxing Gibbous"
 msgstr "Gibosa Creciente"
 
-#: lunarphases/utils.py:33
+#: lunarphases/utils.py:56
 msgid "Full Moon"
 msgstr "Luna Llena"
 
-#: lunarphases/utils.py:36
+#: lunarphases/utils.py:57
 msgid "Waning Gibbous"
 msgstr "Gibosa Menguante"
 
-#: lunarphases/utils.py:39
+#: lunarphases/utils.py:58
 msgid "Last Quarter"
 msgstr "Cuarto menguante"
 
-#: lunarphases/utils.py:42
+#: lunarphases/utils.py:59
 msgid "Waning Crescent"
 msgstr "Menguante"
