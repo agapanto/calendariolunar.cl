@@ -98,6 +98,11 @@ def get_lunar_phase_tips(lunar_phase):
         'message': 'Hoy la luna se encuentra en su máxima potencia y toda la savia se concentra en la parte superior de las plantas, por lo tanto es un buen día para cosechar flores o frutos que estén maduros.'
     }
 
+    HARVEST_ROOTS_AND_LEAFS = {
+        'title': 'Cosecha raices u hojas',
+        'message': 'Hoy toda la savia se concentra en la parte inferior de las plantas, por lo tanto es un buen día para cosechar plantas de raices y hojas.'
+    }
+
     DONT_PRUNE = {
         'title': 'NO realices podas',
         'message': 'No es un buen día para podar tus plantas, debido a que podria suponerles un stress innecesario.',
@@ -115,22 +120,15 @@ def get_lunar_phase_tips(lunar_phase):
 
     tips = {
         'new_moon': [
-            {
-                'title': '',
-                'message': '',
-            }
+            HARVEST_ROOTS_AND_LEAFS,
         ],
         'waxing_crescent': [
-            {
-                'title': '',
-                'message': '',
-            }
+            PLANT_HARVERST_FLOWER_AND_FRUITS,
+            DONT_PRUNE,
         ],
         'first_quarter': [
-            {
-                'title': '',
-                'message': '',
-            }
+            PLANT_HARVERST_FLOWER_AND_FRUITS,
+            DONT_PRUNE,
         ],
         'waxing_gibbous': [
             PLANT_HARVERST_FLOWER_AND_FRUITS,
