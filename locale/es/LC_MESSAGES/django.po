@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-22 09:32+0000\n"
-"PO-Revision-Date: 2019-01-22 06:33-0300\n"
+"POT-Creation-Date: 2019-01-22 10:38+0000\n"
+"PO-Revision-Date: 2019-01-22 07:38-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: es\n"
@@ -57,3 +57,89 @@ msgstr "Cuarto menguante"
 #: lunarphases/utils.py:59
 msgid "Waning Crescent"
 msgstr "Menguante"
+
+#: lunarphases/utils.py:87
+msgid "Sow and harvest plants with flowers or fruits"
+msgstr "Siembra y cosecha plantas con flores o frutos"
+
+#: lunarphases/utils.py:88
+msgid ""
+"It is advisable to plant and harvest those plants that we grow in order to "
+"take advantage of their flowers or fruits."
+msgstr ""
+"Es recomendable sembrar y cosechar aquellas plantas que cultivamos con el "
+"fin de aprovechar sus flores o frutos."
+
+#: lunarphases/utils.py:92
+msgid "Sow and harvest root or leaf plants"
+msgstr "Siembra y cosecha plantas de raices u hojas"
+
+#: lunarphases/utils.py:93
+msgid ""
+"It is advisable to plant and harvest those plants that we grow in order to "
+"take advantage of their roots and leaves."
+msgstr ""
+"Es recomendable sembrar y cosechar aquellas plantas que cultivamos con el "
+"fin de aprovechar sus raices y hojas."
+
+#: lunarphases/utils.py:97
+msgid "Harvest fruits or flowers"
+msgstr "Cosecha frutos o flores"
+
+#: lunarphases/utils.py:98
+msgid ""
+"Today the moon is at its maximum power and all the sap is concentrated in "
+"the upper part of the plants, therefore it is a good day to harvest flowers "
+"or fruits that are ripe."
+msgstr ""
+"Hoy la luna se encuentra en su máxima potencia y toda la savia se concentra "
+"en la parte superior de las plantas, por lo tanto es un buen día para "
+"cosechar flores o frutos que estén maduros."
+
+#: lunarphases/utils.py:102
+msgid "Harvest roots or leaves"
+msgstr "Cosecha raices u hojas"
+
+#: lunarphases/utils.py:103
+msgid ""
+"Today all the sap is concentrated in the lower part of the plants, therefore "
+"it is a good day to harvest root and leaf plants."
+msgstr ""
+"Hoy toda la savia se concentra en la parte inferior de las plantas, por lo "
+"tanto es un buen día para cosechar plantas de raices y hojas."
+
+#: lunarphases/utils.py:107
+msgid "DO NOT perform pruning"
+msgstr "NO realices podas"
+
+#: lunarphases/utils.py:108
+msgid ""
+"It is not a good day to prune your plants, because it could suppose an "
+"unnecessary stress to them."
+msgstr ""
+"No es un buen día para podar tus plantas, debido a que podria suponerles un "
+"stress innecesario."
+
+#: lunarphases/utils.py:112
+msgid "You can prune your plants"
+msgstr "Puedes podar tus plantas"
+
+#: lunarphases/utils.py:113
+msgid ""
+"If you prune your plants today, they will respond better to pruning and "
+"cause less stress."
+msgstr ""
+"Si podas tus plantas hoy, estas responderán mejor a la poda y les causarás "
+"menos stress."
+
+#: lunarphases/utils.py:117
+msgid "You can make cuttings"
+msgstr "Puedes realizar esquejes"
+
+#: lunarphases/utils.py:118
+msgid ""
+"If you make a cutting today, it will have more energy and therefore it will "
+"be more likely to root and generate a new plant."
+msgstr ""
+"Si realizas un esqueje hoy, éste tendrá más energia y por lo tanto será más "
+"probable que enraice y genere una nueva planta."

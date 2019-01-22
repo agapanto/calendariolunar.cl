@@ -84,38 +84,38 @@ def get_lunar_phase_data(now=None):
 def get_lunar_phase_tips(lunar_phase):
 
     PLANT_HARVERST_FLOWER_AND_FRUITS = {
-        'title': 'Siembra y cosecha plantas con flores o frutos',
-        'message': 'Es recomendable sembrar y cosechar aquellas plantas que cultivamos con el fin de aprovechar sus flores o frutos.'
+        'title': _('Sow and harvest plants with flowers or fruits'),
+        'message': _('It is advisable to plant and harvest those plants that we grow in order to take advantage of their flowers or fruits.')
     }
 
     PLANT_HARVERST_ROOTS_AND_LEAVES = {
-        'title': 'Siembra y cosecha plantas de raices u hojas',
-        'message': 'Es recomendable sembrar y cosechar aquellas plantas que cultivamos con el fin de aprovechar sus raices y hojas.'
+        'title': _('Sow and harvest root or leaf plants'),
+        'message': _('It is advisable to plant and harvest those plants that we grow in order to take advantage of their roots and leaves.')
     }
 
     HARVEST_FLOWER_AND_FRUITS = {
-        'title': 'Cosecha frutos o flores',
-        'message': 'Hoy la luna se encuentra en su máxima potencia y toda la savia se concentra en la parte superior de las plantas, por lo tanto es un buen día para cosechar flores o frutos que estén maduros.'
+        'title': _('Harvest fruits or flowers'),
+        'message': _('Today the moon is at its maximum power and all the sap is concentrated in the upper part of the plants, therefore it is a good day to harvest flowers or fruits that are ripe.')
     }
 
     HARVEST_ROOTS_AND_LEAVES = {
-        'title': 'Cosecha raices u hojas',
-        'message': 'Hoy toda la savia se concentra en la parte inferior de las plantas, por lo tanto es un buen día para cosechar plantas de raices y hojas.'
+        'title': _('Harvest roots or leaves'),
+        'message': _('Today all the sap is concentrated in the lower part of the plants, therefore it is a good day to harvest root and leaf plants.')
     }
 
     DONT_PRUNE = {
-        'title': 'NO realices podas',
-        'message': 'No es un buen día para podar tus plantas, debido a que podria suponerles un stress innecesario.',
+        'title': _('DO NOT perform pruning'),
+        'message': _('It is not a good day to prune your plants, because it could suppose an unnecessary stress to them.'),
     }
 
     CAN_PRUNE = {
-        'title': 'Puedes podar tus plantas',
-        'message': 'Si podas tus plantas hoy, estas responderán mejor a la poda y les causarás menos stress.',
+        'title': _('You can prune your plants'),
+        'message': _('If you prune your plants today, they will respond better to pruning and cause less stress.'),
     }
 
     CAN_MAKE_CUTTINGS = {
-        'title': 'Puedes realizar esquejes',
-        'message': 'Si realizas un esqueje hoy, éste tendrá más energia y por lo tanto será más probable que enraice y genere una nueva planta.'
+        'title': _('You can make cuttings'),
+        'message': _('If you make a cutting today, it will have more energy and therefore it will be more likely to root and generate a new plant.')
     }
 
     tips = {
