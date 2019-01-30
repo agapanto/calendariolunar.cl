@@ -7,7 +7,7 @@
     {{ title }}
   </h1> -->
 
-  <div class="moon">
+  <div class="moon mx-auto my-4">
     <svg height="300" width="150" class="moon-left">
       <circle cx="150" cy="150" r="150" stroke="#45484B" fill="#45484B" class="bg"/>
       <circle cx="150" cy="150" r="150" stroke="#45484B" fill="#45484B" class="fg"/>
@@ -17,46 +17,45 @@
     </svg>
   </div>
 
-  <div class="centered">
-    <h1>
+  <div class="text-center">
+    <h1 class="logo">
       CALENDARIO<span class="moonlight">LUNAR</span>.CL
     </h1>
   </div>
 
 
-  <div class="day-list">
+  <div class="day-list mb-4">
     <ul>
       <li class="active">
         {{ lunar_phase.datetime }}
       </li>
     </ul>
-
   </div>
 
-  <div class="centered">
-    <h3>
+  <div class="text-center">
+    <h3 class="title">
       {% trans 'Current Moon Phase' %}: {% trans lunar_phase.name %}
     </h3>
   </div>
 
-  <hr style="border-style: dashed;" />
+  <hr class="dashed" />
 
-  <div class="centered">
-    <h3>
+  <div class="text-center pt-4 pb-4">
+    <h3 class="title">
         <i class="fab fa-pagelines"></i> {% trans 'Crop tips' %}
     </h3>
-    <p class="justified">
-      <ul class="justified">
+    <p class="text-justify">
+      <ul class="text-justify">
           {% for tip in tips %}
-            <li class="justified">
-              <b>{{ tip.title }}:</b> {{ tip.message }}
+            <li class="text-justify mb-2">
+              <span class="moonlight"><b>{{ tip.title }}:</b></span> {{ tip.message }}
             </li>
           {% endfor %}
       </ul>
     </p>
   </div>
 
-  <hr style="border-style: dashed;" />
+  <hr class="dashed" />
 
 {% endblock %}
 
