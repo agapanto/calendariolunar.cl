@@ -38,7 +38,7 @@ def get_lunar_phasecode_from_day(day):
     elif day == 21:
         phase_code = 'last_quarter'
 
-    elif day >= 22 and day < 27:
+    elif day >= 22 and day <= 27:
         phase_code = 'waning_crescent'
 
     else:
