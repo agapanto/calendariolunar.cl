@@ -42,25 +42,28 @@
 
   </div>
 
+  <div class="row">
+    <div class="col-md-12">
+      <hr class="dashed" />
 
-  <hr class="dashed" />
+      <div class="text-center pt-4 pb-4">
+        <h3 class="title">
+            <i class="fab fa-pagelines"></i> {% trans 'Crop tips' %}
+        </h3>
+        <p class="text-justify">
+          <ul class="text-justify">
+              {% for tip in tips %}
+                <li class="text-justify mb-2">
+                  <span class="moonlight"><b>{{ tip.title }}:</b></span> {{ tip.message }}
+                </li>
+              {% endfor %}
+          </ul>
+        </p>
+      </div>
 
-  <div class="text-center pt-4 pb-4">
-    <h3 class="title">
-        <i class="fab fa-pagelines"></i> {% trans 'Crop tips' %}
-    </h3>
-    <p class="text-justify">
-      <ul class="text-justify">
-          {% for tip in tips %}
-            <li class="text-justify mb-2">
-              <span class="moonlight"><b>{{ tip.title }}:</b></span> {{ tip.message }}
-            </li>
-          {% endfor %}
-      </ul>
-    </p>
+      <hr class="dashed" />
+    </div>
   </div>
-
-  <hr class="dashed" />
 
 {% endblock %}
 
