@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'lunarphases',
     'debug_toolbar',
+    'mathfilters',
 ]
 
 MIDDLEWARE = [
