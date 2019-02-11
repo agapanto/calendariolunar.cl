@@ -78,7 +78,7 @@ ul{
 
 .moon-left,.moon-right {
   display:inline-block;
-  width:150px;
+  /* width:150px; */
   position:relative;
   margin:0;
 }
