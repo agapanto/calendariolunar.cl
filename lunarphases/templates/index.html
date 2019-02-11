@@ -7,15 +7,7 @@
 
     <div class="col-md-6 offset-md-3">
 
-      <div class="moon mx-auto my-4">
-        <svg height="300" width="150" class="moon-left">
-          <circle cx="150" cy="150" r="150" stroke="#45484B" fill="#45484B" class="bg"/>
-          <circle cx="150" cy="150" r="150" stroke="#45484B" fill="#45484B" class="fg"/>
-        </svg><svg height="300" width="150" class="moon-right">
-          <circle cx="0" cy="150" r="150" stroke="#45484B" fill="#45484B" class="bg"/>
-          <circle cx="0" cy="150" r="150" stroke="#45484B" fill="#45484B" class="fg"/>
-        </svg>
-      </div>
+      {% include "components/moon.html" with diameter=280 containersize=300 %}
 
       <div class="text-center">
         <h1 class="logo">
