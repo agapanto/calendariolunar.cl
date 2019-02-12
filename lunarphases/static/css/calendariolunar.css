@@ -74,6 +74,7 @@ ul{
 .moon {
   transform: rotate(180deg);
   width:300px;
+  width:280px;
 }
 
 .moon-left,.moon-right {
