@@ -1,3 +1,15 @@
+@keyframes blinking-star {
+  0%{
+    color: white;
+  }
+  50%{
+      color: #EEE6AB;
+  }
+  100%{
+    color: white;
+  }
+}
+
 body{
   color: white;
   font-family: 'Encode Sans', sans-serif;
@@ -46,6 +58,13 @@ ul{
   padding: 0;
 }
 
+ul.menu{
+  font-family: 'Staatliches', cursive;
+  font-size: 1.4rem;
+  list-style: none;
+  margin:0;
+}
+
 .day-list ul{
   list-style: none;
   padding: 0;
@@ -65,6 +84,11 @@ ul{
 
 .moonlight{
   color: #EEE6AB;
+}
+
+.moonlight-animation, .moonlight-animation a{
+  color: white;
+  animation: blinking-star 3s infinite;
 }
 
 .moon-left .bg,.moon-right .bg, .moon-left .fg, .moon-right .fg {

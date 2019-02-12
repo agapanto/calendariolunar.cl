@@ -5,7 +5,27 @@
 {% block content %}
   <div class="row">
 
-    <div class="col-md-6 offset-md-3">
+    <div class="col-md-3">
+      <ul class="menu my-4">
+        <li class="moonlight-animation">
+          <a href="{% url 'current_lunar_phase' %}">
+            {% trans "Home" %}
+          </a>
+        </li>
+        <li class="moonlight-animation">
+          <a href="{{ SOCIAL_NETWORKS.facebook.url }}" style="animation-delay: 1s;">
+            {% trans "Our facebook" %}
+          </a>
+        </li>
+        <li class="moonlight-animation">
+          <a href="{{ SOCIAL_NETWORKS.instagram.url }}" style="animation-delay: 2s;">
+            {% trans "Our instagram" %}
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="col-md-6">
 
       {% include "components/moon.html" with diameter=280 containersize=280 phase=lunar_phase.moon_phase_day %}
 
