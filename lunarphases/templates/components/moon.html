@@ -1,6 +1,6 @@
 {% load mathfilters %}
 
-<div class="moon mx-auto my-4">
+<div class="moon mx-auto my-4" phase="{{ phase }}">
   <svg height="{{ diameter }}" width="{{ diameter | intdiv:2 }}" class="moon-left">
     <circle cx="{{ containersize | intdiv:2 }}" cy="{{ diameter | intdiv:2 }}" r="{{ diameter | intdiv:2 }}" stroke="#45484B" fill="#45484B" class="bg"/>
     <circle cx="{{ containersize | intdiv:2 }}" cy="{{ diameter | intdiv:2 }}" r="{{ diameter | intdiv:2 }}" stroke="#45484B" fill="#45484B" class="fg"/>

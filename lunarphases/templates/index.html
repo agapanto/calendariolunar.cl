@@ -7,7 +7,7 @@
 
     <div class="col-md-6 offset-md-3">
 
-      {% include "components/moon.html" with diameter=280 containersize=300 %}
+      {% include "components/moon.html" with diameter=280 containersize=280 phase=lunar_phase.moon_phase_day %}
 
       <div class="text-center">
         <h1 class="logo">
@@ -68,11 +68,13 @@
   </script>
   <script>
   $(function(){
-    var current_phase = {{ lunar_phase.moon_phase_day | safe }};
-    var moon_size = calculateMoonSize(current_phase);
-    var moon_colors = calculateMoonColors(current_phase);
+		$('.moon').each(function(index){
+			var phase = $(this).attr('phase');
+			var moon_size = calculateMoonSize($(this), phase);
+			var moon_colors = calculateMoonColors(phase);
 
-    updateMoon(moon_size, moon_colors);
+	    updateMoon($(this), moon_size, moon_colors);
+		});
   });
 
 
@@ -83,8 +85,8 @@
   const max_phase = 27;
   const fullmoon_phase = 14;
 
-  function calculateMoonSize(phase){
-    var current_moon_size = $('.moon').width();
+  function calculateMoonSize(moon_object, phase){
+    var current_moon_size = moon_object.width();
     var calculated_moonlight_size = 0;
 
     var moonlight_percentage =  100 * phase / fullmoon_phase;
@@ -120,31 +122,31 @@
     return colors;
   }
 
-  function updateMoonColors(colors){
+  function updateMoonColors(moon_object, colors){
     // moon-left
-    $('.moon-left .bg').css({
+    moon_object.find('.moon-left .bg').css({
       'stroke':colors.moon,
       'fill':colors.moon
     });
-    $('.moon-left .fg').css({
+    moon_object.find('.moon-left .fg').css({
       'stroke':colors.moonlight,
       'fill':colors.moonlight
     });
     // moon-right
-    $('.moon-right .bg').css({
+    moon_object.find('.moon-right .bg').css({
       'stroke':colors.moonlight,
       'fill':colors.moonlight
     });
-    $('.moon-right .fg').css({
+    moon_object.find('.moon-right .fg').css({
       'stroke':colors.moon,
       'fill':colors.moon
     });
 
   }
 
-  function updateMoon(phase, colors){
-    var current_moon_size = $('.moon').width();
-    updateMoonColors(colors);
+  function updateMoon(moon_object, phase, colors){
+    var current_moon_size = moon_object.width();
+    updateMoonColors(moon_object, colors);
 
     var phaseScale = 1,
         phaseTrans = (current_moon_size/2),
@@ -153,7 +155,7 @@
     if(phase <= (current_moon_size/2)) {
       phaseRight = (1-phase/(current_moon_size/2));
     }
-    jQuery('.moon-right .fg').css({
+    moon_object.find('.moon-right .fg').css({
       'transform':'scaleX(' + phaseRight + ')'
     });
 
@@ -161,7 +163,7 @@
       phaseScale = (1-(phase-(current_moon_size/2))/(current_moon_size/2));
       phaseTrans = (current_moon_size/2)*phaseScale;
     }
-    jQuery('.moon-left .fg').css({
+    moon_object.find('.moon-left .fg').css({
       'transform':'translate('+phaseTrans+'px,0) scaleX(' + (1-phaseScale) + ')'
     });
   }
