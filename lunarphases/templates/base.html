@@ -55,19 +55,19 @@
       {% block content %}
       {% endblock %}
 
-      <div class="fb-like" data-href="https://www.facebook.com/calendariolunarchile/" data-width="300" data-layout="standard" data-action="like" data-size="large" data-show-faces="true" data-share="true" colorscheme="dark"></div>
+      <div class="fb-like" data-href="{{ SOCIAL_NETWORKS.facebook.url }}" data-width="300" data-layout="standard" data-action="like" data-size="large" data-show-faces="true" data-share="true" colorscheme="dark"></div>
 
       {% block footer %}
         <div class="row">
           <div class="col-md-12">
             <div class="social-icons text-center my-4">
-              <a class="px-4" href="https://www.facebook.com/calendariolunarchile">
+              <a class="px-4" href="{{ SOCIAL_NETWORKS.facebook.url }}">
                 <i class="fab fa-facebook-f"></i>
               </a>
-              <a class="px-4" href="https://www.instagram.com/calendario_lunar_chile/">
+              <a class="px-4" href="{{ SOCIAL_NETWORKS.instagram.url }}">
                 <i class="fab fa-instagram"></i>
               </a>
-              <a class="px-4" href="https://github.com/mcueto/calendariolunar.cl">
+              <a class="px-4" href="{{ SOCIAL_NETWORKS.github.url }}">
                 <i class="fab fa-github"></i>
               </a>
             </div>
