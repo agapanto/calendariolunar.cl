@@ -62,17 +62,20 @@ def get_lunar_phasename_from_code(code):
     return phasenames[code]
 
 
-def get_lunar_phase_data(now=None):
+def get_lunar_phase_data(reference_datetime=None):
+    if reference_datetime is None:
+        reference_datetime = datetime.datetime.now()
+
     astral = Astral()
     moon_phase_day = astral.moon_phase(
-        date=now
+        date=reference_datetime
     )
 
     phase_code = get_lunar_phasecode_from_day(moon_phase_day)
     phase_name = get_lunar_phasename_from_code(phase_code)
 
     lunar_phase_data = {
-        'datetime': now,
+        'datetime': reference_datetime,
         'code': phase_code,
         'name': phase_name,
         'moon_phase_day': moon_phase_day
