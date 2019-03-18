@@ -63,9 +63,16 @@ def get_lunar_phasename_from_code(code):
     return phasenames[code]
 
 
-def get_lunar_phase_data(reference_datetime=None):
+def get_lunar_phase_data(reference_datetime=None, fix_at_noon=True):
     if reference_datetime is None:
         reference_datetime = datetime.datetime.now()
+
+    if fix_at_noon:
+        reference_datetime = reference_datetime.replace(
+            hour=12,
+            minute=0,
+            second=0
+        )
 
     astral = Astral()
     moon_phase_day = astral.moon_phase(
@@ -170,11 +177,19 @@ def get_following_moon_phase_day_delta(current_moon_phase_day):
 
 
 def get_following_lunar_phases(reference_datetime=None,
-                               following_phases_count=4):
+                               following_phases_count=4,
+                               fix_at_noon=True):
     following_lunar_phases = []
 
     if reference_datetime is None:
         reference_datetime = datetime.datetime.now()
+
+    if fix_at_noon:
+        reference_datetime = reference_datetime.replace(
+            hour=12,
+            minute=0,
+            second=0
+        )
 
     # for following_phases_counter in range(0, following_phases_count):
     for following_phases_counter in range(0, following_phases_count):

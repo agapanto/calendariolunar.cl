@@ -14,7 +14,7 @@ class LunarPhase:
     datetime.datetime.now()
     """
 
-    def __init__(self, reference_datetime=None):
+    def __init__(self, reference_datetime=None, fix_at_noon=True):
         """
         Initialize the current Lunar Phase instance.
 
@@ -22,6 +22,13 @@ class LunarPhase:
         """
         if reference_datetime is None:
             reference_datetime = datetime.datetime.now()
+
+        if fix_at_noon:
+            reference_datetime = reference_datetime.replace(
+                hour=12,
+                minute=0,
+                second=0
+            )
 
         lunar_phase_data = get_lunar_phase_data(
             reference_datetime
