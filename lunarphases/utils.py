@@ -9,8 +9,9 @@ by Sean B. Palmer, from inamidst.com
 To the copied code, i have added translations using gettext to display it
 correctly on different languages.
 """
-# import datetime
+import datetime
 from astral import Astral
+from dateutil.relativedelta import relativedelta
 from django.utils.translation import gettext as _
 
 
@@ -155,3 +156,57 @@ def get_lunar_phase_tips(lunar_phase):
     }
 
     return tips[lunar_phase.code]
+
+
+def get_following_moon_phase_day_delta(current_moon_phase_day):
+    following_moon_phase_day_delta = 0
+
+    if current_moon_phase_day % 7 == 0:
+        following_moon_phase_day_delta = 1
+    else:
+        following_moon_phase_day_delta = 7 - (current_moon_phase_day % 7)
+
+    return following_moon_phase_day_delta
+
+
+def get_following_lunar_phases(reference_datetime=None,
+                               following_phases_count=4):
+    following_lunar_phases = []
+
+    if reference_datetime is None:
+        reference_datetime = datetime.datetime.now()
+
+    # for following_phases_counter in range(0, following_phases_count):
+    for following_phases_counter in range(0, following_phases_count):
+        appended = False
+
+        # While the following lunar phase is not appended
+        while appended is False:
+            current_lunar_phase = get_lunar_phase_data(reference_datetime)
+
+            following_moon_phase_day_delta = get_following_moon_phase_day_delta(
+                current_lunar_phase.get('moon_phase_day')
+            )
+
+            # Updates reference_datetime to the following lunar phase datetime
+            reference_datetime = reference_datetime + relativedelta(
+                days=following_moon_phase_day_delta
+            )
+
+            # Get following lunar phase
+            following_lunar_phase = get_lunar_phase_data(reference_datetime)
+
+            # If there are items on following_lunar_phases
+            if len(following_lunar_phases) > 0:
+                # If the current lunar phase is not the last
+                # following_lunar_phases get_lunar_phasecode_from_day item, append it to the array
+                if following_lunar_phases[-1].get('code') is not following_lunar_phase.get('code'):
+                    following_lunar_phases.append(following_lunar_phase)
+                    appended = True
+
+            # If following_lunar_phases is empty
+            else:
+                following_lunar_phases.append(following_lunar_phase)
+                appended = True
+
+    return following_lunar_phases
