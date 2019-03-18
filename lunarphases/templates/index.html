@@ -77,6 +77,19 @@
     </div>
   </div>
 
+  <div class="row my-4">
+    {% for lunar_phase in following_lunar_phases %}
+		<div class="col-md-3 py-4">
+			<h4 class="text-center">
+				{{ lunar_phase.name }}
+			</h4>
+			{% include "components/moon.html" with diameter=80  phase=lunar_phase.moon_phase_day %}
+			<div class="text-center">
+        {{ lunar_phase.datetime | date }}
+			</div>
+		</div>
+    {% endfor %}
+	</div>
 {% endblock %}
 
 {% block js %}
