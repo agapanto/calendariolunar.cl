@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block content %}
+  <div class="row my-4">
+    {% for lunar_phase in following_lunar_phases %}
+		<div class="col-md-3 py-4">
+			<h4 class="text-center">
+				{{ lunar_phase.name }}
+			</h4>
+			{% include "components/moon.html" with diameter=80  phase=lunar_phase.moon_phase_day %}
+			<div class="text-center">
+        {{ lunar_phase.datetime | date }}
+			</div>
+		</div>
+    {% endfor %}
+	</div>
+{% endblock %}
+
+{% block js %}
+  {{ block.super }}
+  <script
+  			  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  			  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  			  crossorigin="anonymous">
+  </script>
+  <script src="{% static 'js/calendar.js' %}"></script>
+{% endblock %}

@@ -38,3 +38,27 @@ class CurrentLunarPhaseView(View):
         }
 
         return HttpResponse(template.render(context, request))
+
+
+class FollowingLunarPhasesView(View):
+    """
+    FollowingLunarPhasesView.
+
+    This view represents the following lunar phases.
+    """
+
+    def get(self, request):
+        template = loader.get_template('following_lunar_phases.html')
+        lunar_phase = LunarPhase()
+        # lunar_phase_tips = get_lunar_phase_tips(lunar_phase)
+        following_lunar_phases = get_following_lunar_phases(
+            following_phases_count=4*4
+        )
+
+        context = {
+            'lunar_phase': lunar_phase,
+            # 'tips': lunar_phase_tips,
+            'following_lunar_phases': following_lunar_phases,
+        }
+
+        return HttpResponse(template.render(context, request))
