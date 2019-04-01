@@ -52,6 +52,19 @@
     }(document, 'script', 'facebook-jssdk'));</script>
 
     <div class="container">
+
+      <div class="row">
+
+        <div class="col-md-3">
+          {% include "components/menu.html" %}
+        </div>
+
+        <div class="col-md-6">
+          {% include "components/header.html" %}
+        </div>
+
+      </div>
+
       {% block content %}
       {% endblock %}
 
