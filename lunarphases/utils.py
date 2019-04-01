@@ -191,25 +191,30 @@ def get_following_lunar_phases(reference_datetime=None,
             second=0
         )
 
+    # Initialize following_datetime with current datetime(reference_datetime)
+    following_datetime = reference_datetime
+    # Initialize reference_lunar_phase(to compare with following_lunar_phase)
+    reference_lunar_phase = get_lunar_phase_data(reference_datetime)
+
     # for following_phases_counter in range(0, following_phases_count):
     for following_phases_counter in range(0, following_phases_count):
         appended = False
 
         # While the following lunar phase is not appended
         while appended is False:
-            current_lunar_phase = get_lunar_phase_data(reference_datetime)
+            current_lunar_phase = get_lunar_phase_data(following_datetime)
 
             following_moon_phase_day_delta = get_following_moon_phase_day_delta(
                 current_lunar_phase.get('moon_phase_day')
             )
 
-            # Updates reference_datetime to the following lunar phase datetime
-            reference_datetime = reference_datetime + relativedelta(
+            # Updates following_datetime to the following lunar phase datetime
+            following_datetime = following_datetime + relativedelta(
                 days=following_moon_phase_day_delta
             )
 
             # Get following lunar phase
-            following_lunar_phase = get_lunar_phase_data(reference_datetime)
+            following_lunar_phase = get_lunar_phase_data(following_datetime)
 
             # If there are items on following_lunar_phases
             if len(following_lunar_phases) > 0:
@@ -221,7 +226,8 @@ def get_following_lunar_phases(reference_datetime=None,
 
             # If following_lunar_phases is empty
             else:
-                following_lunar_phases.append(following_lunar_phase)
-                appended = True
+                if reference_lunar_phase.get('code') is not following_lunar_phase.get('code'):
+                    following_lunar_phases.append(following_lunar_phase)
+                    appended = True
 
     return following_lunar_phases
