@@ -6,50 +6,11 @@
   <div class="row">
 
     <div class="col-md-3">
-      <ul class="menu my-4">
-        <li class="moonlight-animation">
-          <a href="{% url 'current_lunar_phase' %}">
-            {% trans "Home" %}
-          </a>
-        </li>
-        <li class="moonlight-animation">
-          <a href="{{ SOCIAL_NETWORKS.facebook.url }}" style="animation-delay: 1s;">
-            {% trans "Our facebook" %}
-          </a>
-        </li>
-        <li class="moonlight-animation">
-          <a href="{{ SOCIAL_NETWORKS.instagram.url }}" style="animation-delay: 2s;">
-            {% trans "Our instagram" %}
-          </a>
-        </li>
-      </ul>
+      {% include "components/menu.html" %}
     </div>
 
     <div class="col-md-6">
-
-      {% include "components/moon.html" with diameter=280  phase=lunar_phase.moon_phase_day %}
-
-      <div class="text-center">
-        <h1 class="logo">
-          CALENDARIO<span class="moonlight">LUNAR</span>.CL
-        </h1>
-      </div>
-
-
-      <div class="day-list mb-4">
-        <ul>
-          <li class="active">
-            {{ lunar_phase.datetime | date }}
-          </li>
-        </ul>
-      </div>
-
-      <div class="text-center">
-        <h3 class="title">
-          {% trans 'Current Moon Phase' %}: {% trans lunar_phase.name %}
-        </h3>
-      </div>
-
+      {% include "components/header.html" %}
     </div>
 
   </div>

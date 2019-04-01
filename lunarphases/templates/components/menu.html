@@ -1,0 +1,34 @@
+{% load i18n %}
+
+<ul class="menu my-4">
+  <li class="moonlight-animation">
+    <a href="{% url 'current_lunar_phase' %}">
+      {% trans "Home" %}
+    </a>
+  </li>
+  <!-- <li class="moonlight-animation">
+    <a href="#" style="animation-delay: 1s;">
+      Base de Conocimiento
+    </a>
+  </li> -->
+  <li class="moonlight-animation">
+    <a href="#" style="animation-delay: 1s;">
+      Próximas fases lunares
+    </a>
+  </li>
+  <li class="moonlight-animation">
+    <a href="#" style="animation-delay: 2s;">
+      Calendario mensual
+    </a>
+  </li>
+  <li class="moonlight-animation">
+    <a href="{{ SOCIAL_NETWORKS.facebook.url }}" style="animation-delay: 3s;">
+      {% trans "Our facebook" %}
+    </a>
+  </li>
+  <li class="moonlight-animation">
+    <a href="{{ SOCIAL_NETWORKS.instagram.url }}" style="animation-delay: 4s;">
+      {% trans "Our instagram" %}
+    </a>
+  </li>
+</ul>
