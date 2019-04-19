@@ -165,6 +165,94 @@ def get_lunar_phase_tips(lunar_phase):
     return tips[lunar_phase.code]
 
 
+def get_hair_care_tips(lunar_phase):
+
+    DONT_CUT = {
+        'title': 'No lo cortes',
+        'message': 'En esta fase el cabello está más propenso a caerse debido a que las fibras capilares están debiles.'
+    }
+
+    REPAIR_DAMAGE = {
+        'title': 'Repara tu cabello',
+        'message': 'Aplica un tratamiento si tu cabello se encuentra muy dañado.'
+    }
+
+    CUT_HAIR = {
+        'title': 'Corta tu cabello',
+        'message': 'Si quieres que tu cabello crezca fuerte en poco tiempo, es buen momento para cortarlo.'
+    }
+
+    APPLY_TREATMENTS = {
+        'title': 'Puedes aplicar tratamientos',
+        'message': 'Es buen momento para aplicar tratamientos o tinturas.'
+    }
+
+    DONT_CUT_NOW = {
+        'title': 'No realices un corte radical',
+        'message': 'En esta fase el cabello crece muy rápidamente, por lo cual no es aconsejable realizar un corte radical(cambio de look).'
+    }
+
+    CUT_DAMAGED_HAIR = {
+        'title': 'Corta el cabello dañado',
+        'message': 'Si tu cabello está dañado, hazle un corte para que éste crezca sano, brillante y fuerte.'
+    }
+
+    DONT_CUT_SLOW_SPEED = {
+        'title': 'No lo cortes',
+        'message': 'Si quieres que tu cabello crezca rápido, no es un buen momento para cortarlo.'
+    }
+
+    CLEAN = {
+        'title': 'Realiza una limpieza',
+        'message': 'Haz una limpieza profunda, es etapa de limpieza por lo que no es un buen momento para teñirse.'
+    }
+
+    CUT_HAIR_TIPS = {
+        'title': 'Corta las puntas',
+        'message': 'Es un buen momento si quieres mantener un largo o forma.'
+    }
+
+    tips = {
+        'new_moon': [
+            DONT_CUT,
+            REPAIR_DAMAGE,
+        ],
+        'waxing_crescent': [
+            CUT_HAIR,
+            APPLY_TREATMENTS,
+            DONT_CUT_NOW,
+        ],
+        'first_quarter': [
+            CUT_HAIR,
+            APPLY_TREATMENTS,
+            DONT_CUT_NOW,
+        ],
+        'waxing_gibbous': [
+            CUT_HAIR,
+            APPLY_TREATMENTS,
+            DONT_CUT_NOW,
+        ],
+        'full_moon': [
+            CUT_DAMAGED_HAIR,
+            DONT_CUT_SLOW_SPEED,
+        ],
+        'waning_gibbous': [
+            CLEAN,
+            CUT_HAIR_TIPS
+        ],
+        'last_quarter': [
+            CLEAN,
+            CUT_HAIR_TIPS
+        ],
+        'waning_crescent': [
+            CLEAN,
+            CUT_HAIR_TIPS
+        ],
+    }
+
+    return tips[lunar_phase.code]
+
+
 def get_following_moon_phase_day_delta(current_moon_phase_day):
     following_moon_phase_day_delta = 0
 

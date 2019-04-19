@@ -10,6 +10,7 @@ from django.views import View
 from lunarphases import LunarPhase
 from .utils import (
     get_lunar_phase_tips,
+    get_hair_care_tips,
     get_following_lunar_phases,
 )
 
@@ -27,6 +28,7 @@ class CurrentLunarPhaseView(View):
         template = loader.get_template('index.html')
         lunar_phase = LunarPhase()
         lunar_phase_tips = get_lunar_phase_tips(lunar_phase)
+        hair_care_tips = get_hair_care_tips(lunar_phase)
         following_lunar_phases = get_following_lunar_phases(
             following_phases_count=4
         )
@@ -34,6 +36,7 @@ class CurrentLunarPhaseView(View):
         context = {
             'lunar_phase': lunar_phase,
             'tips': lunar_phase_tips,
+            'hair_tips': hair_care_tips,
             'following_lunar_phases': following_lunar_phases,
         }
 

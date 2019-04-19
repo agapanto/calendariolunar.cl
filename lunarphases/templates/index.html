@@ -23,6 +23,23 @@
       </div>
 
       <hr class="dashed" />
+
+      <div class="text-center py-4">
+        <h3 class="title">
+            <i class="fas fa-cut"></i> Consejos de cabello
+        </h3>
+        <p class="text-justify">
+          <ul class="text-justify">
+              {% for tip in hair_tips %}
+                <li class="text-justify mb-2">
+                  <span class="moonlight"><b>{{ tip.title }}:</b></span> {{ tip.message }}
+                </li>
+              {% endfor %}
+          </ul>
+        </p>
+      </div>
+
+      <hr class="dashed" />
     </div>
   </div>
 
