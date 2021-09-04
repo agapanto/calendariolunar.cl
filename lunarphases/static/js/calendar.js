@@ -34,7 +34,7 @@ function calculateMoonSize(moon_object, phase){
 
 function calculateMoonColors(phase){
   const moon_color = '#45484B';
-  const moonlight_color = '#EEE6AB';
+  const moonlight_color = '#fcef8d';
 
   var colors = {
     'moon': moon_color,
