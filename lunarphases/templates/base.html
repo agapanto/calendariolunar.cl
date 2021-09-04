@@ -75,15 +75,15 @@
 
       {% block header %}
         <div class="row">
+          <div class="col-12 my-4 py-4">
+            {% include "components/header.html" %}
+          </div>
 
           <div class="col-md-3">
             {% include "components/menu.html" %}
           </div>
 
-          <div class="col-md-6">
-            {% include "components/header.html" %}
-          </div>
-
+          
         </div>
       {% endblock %}
 
