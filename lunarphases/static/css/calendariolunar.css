@@ -16,11 +16,21 @@
   }
 }
 
+@keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
 body{
   color: white;
   font-family: 'Encode Sans', sans-serif;
   background-image: url("../stardust.png");
   background-color: #272a2b;
+  text-shadow: 0.1rem 0.1rem 0.1rem black;
 }
 
 hr.dashed{
@@ -48,11 +58,12 @@ h1.logo a{
 }
 
 h3{
-  font-size: 2.4rem;
+  font-size: 2.2rem;
 }
 
 h3.title{
   letter-spacing: -.1rem;
+  text-align: center;
 }
 
 .footer{
@@ -102,6 +113,7 @@ ul.menu{
 .moonlight-animation, .moonlight-animation a{
   color: white;
   animation: blinking-star 3s infinite;
+  text-decoration: none;
 }
 
 .moon-left .bg,.moon-right .bg, .moon-left .fg, .moon-right .fg {
@@ -109,6 +121,7 @@ ul.menu{
 }
 
 .moon {
+  animation: fadeIn 2s linear;
   transform: rotate(180deg);
 }
 
@@ -152,4 +165,54 @@ ul.menu{
 .social-icons a{
   color: white;
   text-decoration: none;
+}
+
+.new-label {
+  font-family: 'VCR OSD Mono', sans-serif;
+}
+
+.btn-space {
+  color: #000;
+  background-color: #c9c9c9;
+  border-color: #a9a9a9;
+  font-family: 'VCR OSD Mono', sans-serif;
+  text-transform: uppercase;
+  text-shadow: none;
+}
+
+.btn-space:hover {
+  color: #000;
+  background-color: #f9f9f9;
+  border-color: #a9a9a9;
+  font-family: 'VCR OSD Mono', sans-serif;
+  text-transform: uppercase;
+  text-shadow: none;
+}
+
+.btn.btn-space.disabled {
+  opacity: 1;
+}
+
+a {
+  color: #a673b3;
+}
+
+.monthly-calendar .day:not(.current-month){
+  background: #828282;
+}
+
+.monthly-calendar .day.today{
+  background: #fcef8d;
+}
+
+.btn-group.rounded-pill .btn:first-child {
+  border-top-left-radius: 50rem;
+  border-bottom-left-radius: 50rem;
+  padding-left: 1rem;
+}
+
+.btn-group.rounded-pill .btn:last-child {
+  border-top-right-radius: 50rem;
+  border-bottom-right-radius: 50rem;
+  padding-right: 1rem;
 }
