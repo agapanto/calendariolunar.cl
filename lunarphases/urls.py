@@ -1,5 +1,6 @@
 """lunarphases app urls."""
 from django.urls import path
+from django.utils.translation import gettext as _
 from lunarphases.views import (
     CurrentLunarPhaseView,
     FollowingLunarPhasesView,
@@ -12,7 +13,7 @@ urlpatterns = [
         name='current_lunar_phase'
     ),
     path(
-        'proximas_fases',
+        _('following_phases'),
         FollowingLunarPhasesView.as_view(),
         name='following_lunar_phases'
     )
