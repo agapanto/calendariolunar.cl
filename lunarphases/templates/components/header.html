@@ -1,23 +1,9 @@
 {% load i18n %}
-{% include "components/moon.html" with diameter=280  phase=lunar_phase.moon_phase_day %}
 
 <div class="text-center">
   <h1 class="logo">
-    CALENDARIO<span class="moonlight">LUNAR</span>.CL
+    <a href="{% url 'current_lunar_phase' %}">
+      CALENDARIO<span class="moonlight">LUNAR</span>.CL
+    </a>
   </h1>
-</div>
-
-
-<div class="day-list mb-4">
-  <ul>
-    <li class="active">
-      {{ lunar_phase.datetime | date }}
-    </li>
-  </ul>
-</div>
-
-<div class="text-center">
-  <h3 class="title">
-    {% trans 'Current Moon Phase' %}: {% trans lunar_phase.name %}
-  </h3>
 </div>
