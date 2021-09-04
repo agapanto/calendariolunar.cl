@@ -48,6 +48,7 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -131,6 +132,13 @@ STATIC_URL = '/static/'
 # Locale paths for translation files
 LOCALE_PATHS = (
     os.path.join(PROJECT_ROOT, '../locale'),
+)
+
+gettext = lambda s: s
+LANGUAGES = (
+    # ('en', gettext('English')),
+    ('es', gettext('Spanish')),
+    # ('pt', gettext('Portuguese')),
 )
 
 # whitenoise

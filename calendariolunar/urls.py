@@ -14,13 +14,25 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.conf import settings
+from django.conf.urls.i18n import i18n_patterns
 from django.contrib import admin
 from django.urls import include, path
 
+
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include('lunarphases.urls'))
+    path(
+        'i18n/',
+        include('django.conf.urls.i18n')
+    ),
+    path(
+        'admin/',
+        admin.site.urls
+    ),
 ]
+
+urlpatterns += i18n_patterns(
+    path('', include('lunarphases.urls'))
+)
 
 if settings.DEBUG:
     import debug_toolbar
