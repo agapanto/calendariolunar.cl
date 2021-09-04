@@ -9,7 +9,7 @@
     color: white;
   }
   50%{
-      color: #EEE6AB;
+    color: #fcef8d;
   }
   100%{
     color: white;
@@ -19,13 +19,15 @@
 body{
   color: white;
   font-family: 'Encode Sans', sans-serif;
-  background-color: #36393B;
   background-image: url("../stardust.png");
+  background-color: #272a2b;
 }
 
 hr.dashed{
-  border-color: white;
-  border-style: dashed;
+  border-color: #fcef8d;
+  border-style: solid;
+  opacity: 1;
+  border-width: 0.1rem;
 }
 
 h1, h2, h3, h4, h5, h6{
@@ -38,6 +40,11 @@ h1{
 
 h1.logo{
   letter-spacing: -.1rem;
+}
+
+h1.logo a{
+  color: white;
+  text-decoration: none;
 }
 
 h3{
@@ -89,7 +96,7 @@ ul.menu{
 }
 
 .moonlight{
-  color: #EEE6AB;
+  color: #fcef8d;
 }
 
 .moonlight-animation, .moonlight-animation a{
@@ -122,7 +129,7 @@ ul.menu{
   fill: #45484B;
 }
 .moon-left .fg {
-  fill: #EEE6AB; transform-origin: 0% 0%;
+  fill: #fcef8d; transform-origin: 0% 0%;
 }
 
 .moon-right .fg {
