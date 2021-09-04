@@ -1,3 +1,9 @@
+@font-face {
+  font-family: "VCR OSD Mono";
+  src: url("fonts/VCR-OSD-MONO.ttf");
+  font-display: swap;
+}
+
 @keyframes blinking-star {
   0%{
     color: white;
