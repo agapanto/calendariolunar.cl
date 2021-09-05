@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}
+	{% trans "Following lunar phases" %} - calendariolunar.cl
+{% endblock %}
+
+{% block content %}
+	<div class="row my-4">
+		<div class="col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3 text-center">
+
+			<div class="mb-4 text-center">
+				<div class="btn-group rounded-pill" role="group" aria-label="Basic example">
+					<a class="btn btn-space" href="{% url 'monthly_calendar' year=previous_month_datetime.year month=previous_month_datetime.month %}">
+						<i class="fas fa-chevron-left"></i>
+					</a>
+					<button type="button" class="btn btn-space disabled">
+						{{ reference_datetime | date:"F Y " }}
+					</button>
+					<a class="btn btn-space" href="{% url 'monthly_calendar' year=following_month_datetime.year month=following_month_datetime.month %}">
+						<i class="fas fa-chevron-right"></i>
+					</a>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+  <div class="row my-4 monthly-calendar">
+
+	<div class="d-flex flex-row justify-content-center col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
+		<div class="m-1 px-1 px-md-4 py-2 btn btn-space disabled rounded w-100 day-header">
+			LUN
+		</div>
+		<div class="m-1 px-1 px-md-4 py-2 btn btn-space disabled rounded w-100 day-header">
+			MAR
+		</div>
+		<div class="m-1 px-1 px-md-4 py-2 btn btn-space disabled rounded w-100 day-header">
+			MIE
+		</div>
+		<div class="m-1 px-1 px-md-4 py-2 btn btn-space disabled rounded w-100 day-header">
+			JUE
+		</div>
+		<div class="m-1 px-1 px-md-4 py-2 btn btn-space disabled rounded w-100 day-header">
+			VIE
+		</div>
+		<div class="m-1 px-1 px-md-4 py-2 btn btn-space disabled rounded w-100 day-header">
+			SAB
+		</div>
+		<div class="m-1 px-1 px-md-4 py-2 btn btn-space disabled rounded w-100 day-header">
+			DOM
+		</div>
+	</div>
+
+	<div class="d-flex flex-row justify-content-center col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3 week ">
+    {% for lunar_phase in following_lunar_phases %}
+		{% include "components/calendar_card.html" %}
+    {% endfor %}
+	</div>
+
+{% endblock %}
+
+{% block js %}
+  {{ block.super }}
+  <script
+  			  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  			  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  			  crossorigin="anonymous">
+  </script>
+  <script src="{% static 'js/calendar.js' %}"></script>
+{% endblock %}
