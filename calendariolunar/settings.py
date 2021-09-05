@@ -71,6 +71,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'lunarphases.context_processors.social_networks',
+                'lunarphases.context_processors.current_url_name',
             ],
         },
     },
