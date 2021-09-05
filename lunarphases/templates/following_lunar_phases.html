@@ -2,6 +2,10 @@
 {% load static %}
 {% load i18n %}
 
+{% block title %}
+	{% trans "Following lunar phases" %} - calendariolunar.cl
+{% endblock %}
+
 {% block content %}
   <div class="row my-4">
     {% for lunar_phase in following_lunar_phases %}
