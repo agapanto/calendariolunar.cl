@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}
+  {% trans 'Projected Moon Phase' %} - {{ lunar_phase.datetime | date:"l d/F/Y" }} - calendariolunar.cl
+{% endblock %}
+
+{% block content %}
+  <div class="row my-4">
+
+    <div class="col-12 col-md-4">
+
+      <div class="py-4">
+        {% include "components/moon.html" with diameter=240  phase=lunar_phase.moon_phase_day %}
+
+        <div class="mb-4 text-center">
+          <a href="{% url 'monthly_calendar' year=lunar_phase.datetime.year month=lunar_phase.datetime.month %}" class="btn btn-space rounded-pill">
+            {{ lunar_phase.datetime | date:"d/M/Y " }}
+            <i class="far fa-calendar"></i>
+          </a>  
+        </div>
+        
+        <div class="">
+          {% if todays_lunar_phase.datetime.date < lunar_phase.datetime.date %}
+            <h3 class="title">
+              {% trans 'Projected Moon Phase' %}
+            </h3>
+          {% elif todays_lunar_phase.datetime.date > lunar_phase.datetime.date %}
+            <h3 class="title">
+              {% trans 'Past Moon Phase' %}
+            </h3>
+          {% else %}
+            <h3 class="title">
+              {% trans 'Current Moon Phase' %}
+            </h3>
+          {% endif %}
+          
+          <h3 class="title">
+            {% trans lunar_phase.name %}
+          </h3>
+          
+        </div>      
+
+      </div>
+    </div>
+    
+    <div class="col-12 col-md-8">
+      <hr class="dashed" />
+
+      <div class=" py-4">
+        <h3 class="title">
+            <i class="fab fa-pagelines"></i> {% trans 'Crop tips' %}
+        </h3>
+        <p class="text-justify">
+          <ul class="text-justify">
+              {% for tip in tips %}
+                <li class="text-justify mb-2">
+                  <span class="moonlight"><b>{{ tip.title }}:</b></span> {{ tip.message }}
+                </li>
+              {% endfor %}
+          </ul>
+        </p>
+      </div>
+
+      <hr class="dashed" />
+
+      <div class="py-4">
+        <h3 class="title">
+            <i class="fas fa-cut"></i> Consejos de cabello
+        </h3>
+        <p class="text-justify">
+          <ul class="text-justify">
+              {% for tip in hair_tips %}
+                <li class="text-justify mb-2">
+                  <span class="moonlight"><b>{{ tip.title }}:</b></span> {{ tip.message }}
+                </li>
+              {% endfor %}
+          </ul>
+        </p>
+      </div>
+
+      <hr class="dashed" />
+    </div>
+
+  </div>
+
+  <div class="row mt-0 mb-4">
+		<div class="col-md-6 offset-md-3 py-4 text-center">
+      <a class="btn btn-space rounded-pill" href="{% url 'monthly_calendar' year=lunar_phase.datetime.year month=lunar_phase.datetime.month %}">
+        {% trans "See monthly calendar" %}
+      </a>
+		</div>
+
+	</div>
+
+{% endblock %}
+
+{% block js %}
+  {{ block.super }}
+  <script
+  			  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  			  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  			  crossorigin="anonymous">
+  </script>
+  <script src="{% static 'js/calendar.js' %}"></script>
+{% endblock %}
