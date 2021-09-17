@@ -9,17 +9,29 @@
 {% block content %}
   <div class="row my-4">
     {% for lunar_phase in following_lunar_phases %}
-		<div class="col-md-3 py-4">
+		<div class="col-6 col-md-3 py-4">
 			<h4 class="text-center">
 				{{ lunar_phase.name }}
 			</h4>
 			{% include "components/moon.html" with diameter=80  phase=lunar_phase.moon_phase_day %}
-			<div class="text-center">
-        {{ lunar_phase.datetime | date }}
+			<div class="mb-4 text-center">
+				<a href="{% url 'specific_lunar_phase' year=lunar_phase.datetime.year month=lunar_phase.datetime.month day=lunar_phase.datetime.day %}" class="btn btn-space rounded-pill">
+					{{ lunar_phase.datetime | date:"d/M/Y " }}
+					<i class="fas fa-rocket"></i>
+				</a>  
 			</div>
 		</div>
     {% endfor %}
 	</div>
+
+	<div class="row mt-0 mb-4">
+		<div class="col-md-6 offset-md-3 py-4 text-center">
+      <a class="btn btn-space rounded-pill" href="{% url 'monthly_calendar' year=todays_lunar_phase.datetime.year month=todays_lunar_phase.datetime.month %}">
+        {% trans "See monthly calendar" %}
+      </a>
+		</div>
+	</div>
+
 {% endblock %}
 
 {% block js %}

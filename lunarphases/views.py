@@ -55,14 +55,14 @@ class FollowingLunarPhasesView(View):
 
     def get(self, request):
         template = loader.get_template('following_lunar_phases.html')
-        lunar_phase = LunarPhase()
+        todays_lunar_phase = LunarPhase()
         # lunar_phase_tips = get_lunar_phase_tips(lunar_phase)
         following_lunar_phases = get_following_lunar_phases(
             following_phases_count=4*4
         )
 
         context = {
-            'lunar_phase': lunar_phase,
+            'todays_lunar_phase': todays_lunar_phase,
             # 'tips': lunar_phase_tips,
             'following_lunar_phases': following_lunar_phases,
         }
