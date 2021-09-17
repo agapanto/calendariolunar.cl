@@ -10,7 +10,7 @@ To the copied code, i have added translations using gettext to display it
 correctly on different languages.
 """
 import datetime, calendar
-from astral import Astral
+from astral.moon import phase
 from dateutil.relativedelta import relativedelta
 from django.utils.translation import gettext as _
 
@@ -74,9 +74,8 @@ def get_lunar_phase_data(reference_datetime=None, fix_at_noon=True):
             second=0
         )
 
-    astral = Astral()
-    moon_phase_day = astral.moon_phase(
-        date=reference_datetime
+    moon_phase_day = int(
+        phase(date=reference_datetime)
     )
 
     phase_code = get_lunar_phasecode_from_day(moon_phase_day)
