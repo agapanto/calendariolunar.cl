@@ -1,6 +1,7 @@
 """lunarphases app views."""
 # import os
 # import logging
+import datetime
 from django.http import (
     HttpResponse,
     # HttpResponseRedirect,
@@ -62,6 +63,41 @@ class FollowingLunarPhasesView(View):
             'lunar_phase': lunar_phase,
             # 'tips': lunar_phase_tips,
             'following_lunar_phases': following_lunar_phases,
+        }
+
+        return HttpResponse(template.render(context, request))
+
+
+class SpecificLunarPhasesView(View):
+    """
+    SpecificLunarPhasesView.
+
+    This view represents the lunar phases on a certain date.
+    """
+
+    def get(self, request, year, month, day):
+        template = loader.get_template('specific.html')
+
+        reference_datetime = datetime.datetime(
+            year=year,
+            month=month,
+            day=day
+        )
+
+        todays_lunar_phase = LunarPhase()
+        lunar_phase = LunarPhase(reference_datetime=reference_datetime)
+        lunar_phase_tips = get_lunar_phase_tips(lunar_phase)
+        hair_care_tips = get_hair_care_tips(lunar_phase)
+        # following_lunar_phases = get_following_lunar_phases(
+        #     following_phases_count=4
+        # )
+
+        context = {
+            'todays_lunar_phase': todays_lunar_phase,
+            'lunar_phase': lunar_phase,
+            'tips': lunar_phase_tips,
+            'hair_tips': hair_care_tips,
+            # 'following_lunar_phases': following_lunar_phases,
         }
 
         return HttpResponse(template.render(context, request))
