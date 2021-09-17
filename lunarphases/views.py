@@ -29,15 +29,15 @@ class CurrentLunarPhaseView(View):
 
     def get(self, request):
         template = loader.get_template('index.html')
-        lunar_phase = LunarPhase()
-        lunar_phase_tips = get_lunar_phase_tips(lunar_phase)
-        hair_care_tips = get_hair_care_tips(lunar_phase)
+        todays_lunar_phase = LunarPhase()
+        lunar_phase_tips = get_lunar_phase_tips(todays_lunar_phase)
+        hair_care_tips = get_hair_care_tips(todays_lunar_phase)
         following_lunar_phases = get_following_lunar_phases(
             following_phases_count=4
         )
 
         context = {
-            'lunar_phase': lunar_phase,
+            'todays_lunar_phase': todays_lunar_phase,
             'tips': lunar_phase_tips,
             'hair_tips': hair_care_tips,
             'following_lunar_phases': following_lunar_phases,

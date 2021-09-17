@@ -8,10 +8,36 @@
 
 {% block content %}
   <div class="row my-4">
-    <div class="col-md-12">
+
+    <div class="col-12 col-md-4">
+
+      <div class="py-4">
+        {% include "components/moon.html" with diameter=240  phase=todays_lunar_phase.moon_phase_day %}
+
+        <div class="mb-4 text-center">
+          <a href="{% url 'monthly_calendar' year=todays_lunar_phase.datetime.year month=todays_lunar_phase.datetime.month %}" class="btn btn-space rounded-pill">
+            {{ todays_lunar_phase.datetime | date:"d/M/Y " }}
+            <i class="far fa-calendar"></i>
+          </a>  
+        </div>
+        
+        <div class="">
+          <h3 class="title">
+            {% trans 'Current Moon Phase' %}
+          </h3>
+          <h3 class="title">
+            {% trans todays_lunar_phase.name %}
+          </h3>
+          
+        </div>      
+
+      </div>
+    </div>
+    
+    <div class="col-12 col-md-8">
       <hr class="dashed" />
 
-      <div class="text-center py-4">
+      <div class=" py-4">
         <h3 class="title">
             <i class="fab fa-pagelines"></i> {% trans 'Crop tips' %}
         </h3>
@@ -28,7 +54,7 @@
 
       <hr class="dashed" />
 
-      <div class="text-center py-4">
+      <div class="py-4">
         <h3 class="title">
             <i class="fas fa-cut"></i> Consejos de cabello
         </h3>
@@ -45,25 +71,29 @@
 
       <hr class="dashed" />
     </div>
+
   </div>
 
   <div class="row my-4">
-    {% for lunar_phase in following_lunar_phases %}
-		<div class="col-md-3 py-4">
+    {% for todays_lunar_phase in following_lunar_phases %}
+		<div class="col-6 col-md-3 py-4">
 			<h4 class="text-center">
-				{{ lunar_phase.name }}
+				{{ todays_lunar_phase.name }}
 			</h4>
-			{% include "components/moon.html" with diameter=80  phase=lunar_phase.moon_phase_day %}
-			<div class="text-center">
-        {{ lunar_phase.datetime | date }}
-			</div>
+			{% include "components/moon.html" with diameter=80  phase=todays_lunar_phase.moon_phase_day %}
+      <div class="mb-4 text-center">
+        <a href="{% url 'specific_lunar_phase' year=todays_lunar_phase.datetime.year month=todays_lunar_phase.datetime.month day=todays_lunar_phase.datetime.day %}" class="btn btn-space rounded-pill">
+          {{ todays_lunar_phase.datetime | date:"d/M/Y " }}
+          <i class="fas fa-rocket"></i>
+        </a>  
+      </div>
 		</div>
     {% endfor %}
 	</div>
 
   <div class="row mt-0 mb-4">
 		<div class="col-md-6 offset-md-3 py-4 text-center">
-      <a class="btn btn-primary" href="{% url 'following_lunar_phases' %}">
+      <a class="btn btn-space rounded-pill" href="{% url 'following_lunar_phases' %}">
         {% trans "See following lunar phases" %}
       </a>
 		</div>
