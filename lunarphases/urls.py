@@ -4,6 +4,7 @@ from django.utils.translation import gettext as _
 from lunarphases.views import (
     CurrentLunarPhaseView,
     FollowingLunarPhasesView,
+    MonthlyCalendarView,
     SpecificLunarPhasesView,
 )
 
@@ -17,6 +18,11 @@ urlpatterns = [
         _('following_phases'),
         FollowingLunarPhasesView.as_view(),
         name='following_lunar_phases'
+    ),
+    path(
+        _('monthly_calendar')+'/<int:year>/<int:month>',
+        MonthlyCalendarView.as_view(),
+        name='monthly_calendar'
     ),
     path(
          _('projected_phase')+'/<int:year>/<int:month>/<int:day>',

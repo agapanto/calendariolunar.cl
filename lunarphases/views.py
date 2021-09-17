@@ -8,11 +8,13 @@ from django.http import (
 )
 from django.template import loader
 from django.views import View
+from dateutil.relativedelta import relativedelta
 from lunarphases import LunarPhase
 from .utils import (
     get_lunar_phase_tips,
     get_hair_care_tips,
     get_following_lunar_phases,
+    get_monthly_calendar,
 )
 
 # logger = logging.getLogger(__name__)
@@ -62,6 +64,43 @@ class FollowingLunarPhasesView(View):
         context = {
             'lunar_phase': lunar_phase,
             # 'tips': lunar_phase_tips,
+            'following_lunar_phases': following_lunar_phases,
+        }
+
+        return HttpResponse(template.render(context, request))
+
+
+class MonthlyCalendarView(View):
+    """
+    MonthlyCalendarView.
+
+    This view represents a Monthly Calendar.
+    """
+
+    def get(self, request, year, month):
+        template = loader.get_template('monthly_calendar.html')
+        reference_datetime = datetime.datetime(
+            year=year,
+            month=month,
+            day=1
+        )
+        previous_month_datetime = reference_datetime - relativedelta(
+            months=1
+        )
+        following_month_datetime = reference_datetime + relativedelta(
+            months=1
+        )
+
+        todays_lunar_phase = LunarPhase()
+        following_lunar_phases = get_monthly_calendar(
+            reference_datetime=reference_datetime
+        )
+
+        context = {
+            'reference_datetime': reference_datetime,
+            'previous_month_datetime': previous_month_datetime,
+            'following_month_datetime': following_month_datetime,
+            'todays_lunar_phase': todays_lunar_phase,
             'following_lunar_phases': following_lunar_phases,
         }
 
