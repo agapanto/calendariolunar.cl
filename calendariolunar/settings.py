@@ -23,10 +23,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'k)2v8!!e00i**13h)0mrt6$bvk47v3@d55@k7$r&b12b&s^$_d'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = eval(os.environ['DEBUG'])
+DEBUG = eval(os.environ.get('DEBUG', "true"))
 
 ALLOWED_HOSTS = [
-    os.environ['APP_HOST']
+    os.environ.get('APP_HOST', '127.0.0.1')
 ]
 
 
@@ -48,6 +48,7 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -70,6 +71,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'lunarphases.context_processors.social_networks',
+                'lunarphases.context_processors.current_url_name',
             ],
         },
     },
@@ -131,6 +133,13 @@ STATIC_URL = '/static/'
 # Locale paths for translation files
 LOCALE_PATHS = (
     os.path.join(PROJECT_ROOT, '../locale'),
+)
+
+gettext = lambda s: s
+LANGUAGES = (
+    # ('en', gettext('English')),
+    ('es', gettext('Spanish')),
+    # ('pt', gettext('Portuguese')),
 )
 
 # whitenoise

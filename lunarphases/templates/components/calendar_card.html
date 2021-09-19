@@ -1,0 +1,21 @@
+<a href="{% url 'specific_lunar_phase' year=lunar_phase.datetime.year month=lunar_phase.datetime.month day=lunar_phase.datetime.day %}" class="m-1 px-1 px-md-4 py-0 py-md-2 btn btn-space rounded w-100 day {% if reference_datetime.month == lunar_phase.datetime.month %} current-month{% endif %} {% if todays_lunar_phase.datetime.month == lunar_phase.datetime.month and todays_lunar_phase.datetime.day == lunar_phase.datetime.day %} today{% endif %}">
+    <h4 class="text-center my-2">
+        {{ lunar_phase.datetime | date:"d" }}
+    </h4>
+    {% include "components/moon.html" with diameter=30  phase=lunar_phase.moon_phase_day %}
+
+    <div class="my-0 text-center">
+
+        {% if lunar_phase.datetime.date >= todays_lunar_phase.datetime.date %}
+            <i class="fas fa-rocket"></i>
+        {% else %}
+            <i class="fas fa-history"></i>
+        {% endif %}
+    </div>
+    
+</a>
+
+{% if lunar_phase.datetime.isoweekday == 7 %}
+    </div>
+    <div class="d-flex flex-row justify-content-center col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3 week ">
+{% endif %}

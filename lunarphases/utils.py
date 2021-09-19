@@ -9,8 +9,8 @@ by Sean B. Palmer, from inamidst.com
 To the copied code, i have added translations using gettext to display it
 correctly on different languages.
 """
-import datetime
-from astral import Astral
+import datetime, calendar
+from astral.moon import phase
 from dateutil.relativedelta import relativedelta
 from django.utils.translation import gettext as _
 
@@ -74,9 +74,8 @@ def get_lunar_phase_data(reference_datetime=None, fix_at_noon=True):
             second=0
         )
 
-    astral = Astral()
-    moon_phase_day = astral.moon_phase(
-        date=reference_datetime
+    moon_phase_day = int(
+        phase(date=reference_datetime)
     )
 
     phase_code = get_lunar_phasecode_from_day(moon_phase_day)
@@ -319,3 +318,94 @@ def get_following_lunar_phases(reference_datetime=None,
                     appended = True
 
     return following_lunar_phases
+
+
+def get_monthly_calendar(reference_datetime=None,
+                         fix_at_noon=True):
+    monthly_calendar = []
+
+    if reference_datetime is None:
+        reference_datetime = datetime.datetime.now()
+
+    if fix_at_noon:
+        reference_datetime = reference_datetime.replace(
+            day=1,
+            hour=12,
+            minute=0,
+            second=0
+        )
+
+    # Initialize following_datetime with current datetime(reference_datetime)
+    following_datetime = reference_datetime
+    # Initialize reference_lunar_phase(to compare with following_lunar_phase)
+    reference_lunar_phase = get_lunar_phase_data(reference_datetime)
+
+    # Get the first day of the month for current year and assign it
+    year = reference_datetime.year
+    month = reference_datetime.month
+    num_days = calendar.monthrange(year, month)[1]
+    days = [datetime.date(year, month, day) for day in range(1, num_days+1)]
+
+    # Add previous days
+    for i in reversed(range(1, reference_datetime.isoweekday())):
+        past_datetime = reference_datetime - relativedelta(
+            days=i
+        )
+
+        day = get_lunar_phase_data(past_datetime)
+        
+        monthly_calendar.append(day)
+
+    # for following_phases_counter in range(0, following_phases_count):
+    for following_phases_counter in range(0, len(days)):
+        appended = False
+
+        day = get_lunar_phase_data(following_datetime)
+
+        following_datetime = following_datetime + relativedelta(
+            days=1
+        )
+
+        monthly_calendar.append(day)
+
+
+    for i in range(monthly_calendar[-1]["datetime"].isoweekday(), 7):
+        day = get_lunar_phase_data(following_datetime)
+        
+        following_datetime = following_datetime + relativedelta(
+            days=1
+        )
+        
+        monthly_calendar.append(day)
+
+    return monthly_calendar
+
+
+def get_limit_datetime(reference_datetime=None,
+                       following_phases_count=4,
+                       fix_at_00=True):
+
+    if reference_datetime is None:
+        reference_datetime = datetime.datetime.now()
+
+    if fix_at_00:
+        reference_datetime = reference_datetime.replace(
+            day=1,
+            hour=0,
+            minute=0,
+            second=0
+        )
+    
+    minimum_datetime = datetime.datetime(
+        year=2018,
+        month=1,
+        day=1
+    )
+
+    limit_datetime = reference_datetime + relativedelta(
+        months=7
+    ) - relativedelta (
+        days=1
+    )
+    
+    return minimum_datetime, limit_datetime

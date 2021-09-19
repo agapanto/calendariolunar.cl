@@ -1,3 +1,6 @@
+from django.urls import resolve
+
+
 def social_networks(request):
     social_networks = {
         'facebook': {
@@ -12,4 +15,17 @@ def social_networks(request):
     }
     return {
         'SOCIAL_NETWORKS': social_networks
+    }
+
+
+def current_url_name(request):
+    current_url_name = ''
+    
+    try:
+        current_url_name = resolve(request.path_info).url_name
+    except:
+        pass
+
+    return {
+        'CURRENT_URL_NAME': current_url_name
     }

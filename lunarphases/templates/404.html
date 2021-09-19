@@ -7,9 +7,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0, shrink-to-fit=no">
     <title>
-      {% block title %}
-        calendariolunar.cl
-      {% endblock %}
+      404 - calendariolunar.cl
     </title>
 
     <!-- Favicon -->
@@ -31,8 +29,6 @@
     <meta name="msapplication-TileImage" content="{% static 'favicon/ms-icon-144x144.png' %}">
     <meta name="theme-color" content="#ffffff">
 
-
-    {% block css %}
       <!-- Bootstrap 5 -->
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
@@ -45,9 +41,6 @@
 
       <link href="{% static 'css/calendariolunar.css' %}" rel="stylesheet">
 
-    {% endblock %}
-
-    {% block js %}
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-132394514-1"></script>
     <script>
@@ -57,64 +50,42 @@
 
       gtag('config', 'UA-132394514-1');
     </script>
-
-    {% endblock %}
   </head>
 
   <body>
-    <div id="fb-root"></div>
-    <script>(function(d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      js = d.createElement(s); js.id = id;
-      js.src = 'https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v3.2&appId=2114020585515606&autoLogAppEvents=1';
-      fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));</script>
 
     <div class="container">
-
-      {% block header %}
         <div class="row">
-          <div class="col-12 my-4 py-4">
-            {% include "components/header.html" %}
-          </div>
-
-          <div class="col-12">
-            {% include "components/menu.html" %}
-          </div>
-
-          
-        </div>
-      {% endblock %}
-
-      {% block content %}
-      {% endblock %}
-
-      <div class="fb-like my-4" data-href="{{ SOCIAL_NETWORKS.facebook.url }}" data-width="300" data-layout="standard" data-action="like" data-size="large" data-show-faces="true" data-share="true" colorscheme="dark"></div>
-
-      {% block footer %}
-        <div class="row">
-          <div class="col-md-12">
-            <div class="social-icons text-center my-4">
-              <a class="px-2" href="{{ SOCIAL_NETWORKS.facebook.url }}">
-                <i class="fab fa-facebook-f fa-fw"></i>
-              </a>
-              <a class="px-2" href="{{ SOCIAL_NETWORKS.instagram.url }}">
-                <i class="fab fa-instagram fa-fw"></i>
-              </a>
-              <a class="px-2" href="{{ SOCIAL_NETWORKS.github.url }}">
-                <i class="fab fa-github fa-fw"></i>
-              </a>
+            <div class="col-12 my-4 py-4">
+                <div class="text-center">
+                    <h1 class="logo">
+                        <a href="{% url 'current_lunar_phase' %}">
+                        CALENDARIO<span class="moonlight">LUNAR</span>.CL
+                        </a>
+                    </h1>
+                </div>
             </div>
-
-            <div class="footer my-4">
-              calendariolunar.cl - un proyecto <a href="https://agapanto.cl">agapanto</a>
-            </div>
-          </div>
         </div>
 
-      {% endblock %}
+        <div class="row">
+            <div class="col-12 my-4 py-4" id="missing-ship-container-space">
+                <div class="text-center" id="missing-ship-container">
+                    <i class="fas fa-rocket" id="missing-ship"></i>
+                </div>
+            </div>
+        </div>
 
+        <div class="row">
+            <div class="col-12 my-2 py-0">
+                <div class="text-center">
+                    <h1>
+                        404
+                    </h1>
+                </div>
+            </div>
+        </div>
+
+        
     </div>
 
     <!-- Bootstrap 5 -->
