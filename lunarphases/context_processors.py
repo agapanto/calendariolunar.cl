@@ -19,7 +19,12 @@ def social_networks(request):
 
 
 def current_url_name(request):
-    current_url_name = resolve(request.path_info).url_name
+    current_url_name = ''
+    
+    try:
+        current_url_name = resolve(request.path_info).url_name
+    except:
+        pass
 
     return {
         'CURRENT_URL_NAME': current_url_name
