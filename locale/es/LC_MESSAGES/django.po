@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-04 06:06+0000\n"
-"PO-Revision-Date: 2021-09-04 02:08-0400\n"
+"POT-Creation-Date: 2021-09-19 08:45+0000\n"
+"PO-Revision-Date: 2021-09-19 05:46-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: es\n"
@@ -18,68 +18,59 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 3.0\n"
 
-#: calendariolunar/settings.py:140
+#: calendariolunar/settings.py:141
 msgid "Spanish"
 msgstr "Español"
 
-#: lunarphases/templates/404.html:6
-#: lunarphases/templates/components/menu.html:42
+#: lunarphases/templates/components/menu.html:9
 #: lunarphases/templates/index.html:6
 msgid "Home"
 msgstr "Inicio"
 
-#: lunarphases/templates/404.html:45
-#: lunarphases/templates/components/header.html:23
-#: lunarphases/templates/index.html:45 lunarphases/templates/specific.html:35
-msgid "Current Moon Phase"
-msgstr "Fase Lunar Actual"
-
-#: lunarphases/templates/404.html:61 lunarphases/templates/index.html:61
-#: lunarphases/templates/specific.html:53
-msgid "Crop tips"
-msgstr "Consejos de cultivo"
-
-#: lunarphases/templates/404.html:116 lunarphases/templates/index.html:116
-msgid "See following lunar phases"
-msgstr "Ver próximas fases lunares"
-
-#: lunarphases/templates/components/menu.html:22 lunarphases/urls.py:18
-msgid "following_phases"
-msgstr "proximas_fases"
-
-#: lunarphases/templates/components/menu.html:23 lunarphases/urls.py:23
-msgid "monthly_calendar"
-msgstr "calendario_mensual"
-
-#: lunarphases/templates/components/menu.html:58
+#: lunarphases/templates/components/menu.html:25
 #: lunarphases/templates/following_lunar_phases.html:6
-#: lunarphases/templates/monthly_calendar.html:6
 msgid "Following lunar phases"
 msgstr "Próximas fases lunares"
 
-#: lunarphases/templates/components/menu.html:69
+#: lunarphases/templates/components/menu.html:36
+#: lunarphases/templates/monthly_calendar.html:6
 msgid "Monthly calendar"
 msgstr "Calendario mensual"
 
-#: lunarphases/templates/components/menu.html:69
+#: lunarphases/templates/components/menu.html:36
 msgid "NEW"
 msgstr "NUEVO"
 
-#: lunarphases/templates/components/menu.html:80
+#: lunarphases/templates/components/menu.html:47
 msgid "Our facebook"
 msgstr "Nuestro facebook"
 
-#: lunarphases/templates/components/menu.html:91
+#: lunarphases/templates/components/menu.html:58
 msgid "Our instagram"
 msgstr "Nuestro instagram"
 
 #: lunarphases/templates/following_lunar_phases.html:30
-#: lunarphases/templates/monthly_calendar.html:61
-#: lunarphases/templates/specific.html:108
+#: lunarphases/templates/specific.html:91
 msgid "See monthly calendar"
 msgstr "Ver calendario mensual"
 
-#: lunarphases/templates/specific.html:6 lunarphases/templates/specific.html:27
+#: lunarphases/templates/index.html:26 lunarphases/templates/specific.html:35
+msgid "Current Moon Phase"
+msgstr "Fase Lunar Actual"
+
+#: lunarphases/templates/index.html:42 lunarphases/templates/specific.html:53
+msgid "Crop tips"
+msgstr "Consejos de cultivo"
+
+#: lunarphases/templates/index.html:97
+msgid "See following lunar phases"
+msgstr "Ver próximas fases lunares"
+
+#: lunarphases/templates/specific.html:6
+msgid "Daily phase"
+msgstr "Fase diaria"
+
+#: lunarphases/templates/specific.html:27
 msgid "Projected Moon Phase"
 msgstr "Fase Lunar Proyectada"
 
@@ -87,9 +78,17 @@ msgstr "Fase Lunar Proyectada"
 msgid "Past Moon Phase"
 msgstr "Fase Lunar Pasada"
 
+#: lunarphases/urls.py:18
+msgid "following_phases"
+msgstr "proximas_fases"
+
+#: lunarphases/urls.py:23
+msgid "monthly_calendar"
+msgstr "calendario_mensual"
+
 #: lunarphases/urls.py:28
-msgid "projected_phase"
-msgstr "fase_proyectada"
+msgid "daily_phase"
+msgstr "fase_diaria"
 
 #: lunarphases/utils.py:53
 msgid "New Moon"
@@ -123,11 +122,11 @@ msgstr "Cuarto menguante"
 msgid "Waning Crescent"
 msgstr "Menguante"
 
-#: lunarphases/utils.py:98
+#: lunarphases/utils.py:97
 msgid "Sow and harvest plants with flowers or fruits"
 msgstr "Siembra y cosecha plantas con flores o frutos"
 
-#: lunarphases/utils.py:99
+#: lunarphases/utils.py:98
 msgid ""
 "It is advisable to plant and harvest those plants that we grow in order to "
 "take advantage of their flowers or fruits."
@@ -135,11 +134,11 @@ msgstr ""
 "Es recomendable sembrar y cosechar aquellas plantas que cultivamos con el "
 "fin de aprovechar sus flores o frutos."
 
-#: lunarphases/utils.py:103
+#: lunarphases/utils.py:102
 msgid "Sow and harvest root or leaf plants"
 msgstr "Siembra y cosecha plantas de raices u hojas"
 
-#: lunarphases/utils.py:104
+#: lunarphases/utils.py:103
 msgid ""
 "It is advisable to plant and harvest those plants that we grow in order to "
 "take advantage of their roots and leaves."
@@ -147,11 +146,11 @@ msgstr ""
 "Es recomendable sembrar y cosechar aquellas plantas que cultivamos con el "
 "fin de aprovechar sus raices y hojas."
 
-#: lunarphases/utils.py:108
+#: lunarphases/utils.py:107
 msgid "Harvest fruits or flowers"
 msgstr "Cosecha frutos o flores"
 
-#: lunarphases/utils.py:109
+#: lunarphases/utils.py:108
 msgid ""
 "Today the moon is at its maximum power and all the sap is concentrated in "
 "the upper part of the plants, therefore it is a good day to harvest flowers "
@@ -161,11 +160,11 @@ msgstr ""
 "en la parte superior de las plantas, por lo tanto es un buen día para "
 "cosechar flores o frutos que estén maduros."
 
-#: lunarphases/utils.py:113
+#: lunarphases/utils.py:112
 msgid "Harvest roots or leaves"
 msgstr "Cosecha raices u hojas"
 
-#: lunarphases/utils.py:114
+#: lunarphases/utils.py:113
 msgid ""
 "Today all the sap is concentrated in the lower part of the plants, therefore "
 "it is a good day to harvest root and leaf plants."
@@ -173,11 +172,11 @@ msgstr ""
 "Hoy toda la savia se concentra en la parte inferior de las plantas, por lo "
 "tanto es un buen día para cosechar plantas de raices y hojas."
 
-#: lunarphases/utils.py:118
+#: lunarphases/utils.py:117
 msgid "DO NOT perform pruning"
 msgstr "NO realices podas"
 
-#: lunarphases/utils.py:119
+#: lunarphases/utils.py:118
 msgid ""
 "It is not a good day to prune your plants, because it could suppose an "
 "unnecessary stress to them."
@@ -185,11 +184,11 @@ msgstr ""
 "No es un buen día para podar tus plantas, debido a que podria suponerles un "
 "stress innecesario."
 
-#: lunarphases/utils.py:123
+#: lunarphases/utils.py:122
 msgid "You can prune your plants"
 msgstr "Puedes podar tus plantas"
 
-#: lunarphases/utils.py:124
+#: lunarphases/utils.py:123
 msgid ""
 "If you prune your plants today, they will respond better to pruning and "
 "cause less stress."
@@ -197,14 +196,17 @@ msgstr ""
 "Si podas tus plantas hoy, estas responderán mejor a la poda y les causarás "
 "menos stress."
 
-#: lunarphases/utils.py:128
+#: lunarphases/utils.py:127
 msgid "You can make cuttings"
 msgstr "Puedes realizar esquejes"
 
-#: lunarphases/utils.py:129
+#: lunarphases/utils.py:128
 msgid ""
 "If you make a cutting today, it will have more energy and therefore it will "
 "be more likely to root and generate a new plant."
 msgstr ""
 "Si realizas un esqueje hoy, éste tendrá más energia y por lo tanto será más "
 "probable que enraice y genere una nueva planta."
+
+#~ msgid "projected_phase"
+#~ msgstr "fase_proyectada"
