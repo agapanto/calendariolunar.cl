@@ -1,0 +1,16 @@
+<div class="m-1 px-1 px-md-4 py-0 py-md-2 btn btn-space disabled rounded w-100 day">
+    <h4 class="text-center my-2">
+        {{ lunar_phase.datetime | date:"d" }}
+    </h4>
+    {% include "components/moon.html" with diameter=30  phase=lunar_phase.moon_phase_day %}
+
+    <div class="my-0 text-center">
+        <i class="fas"></i>
+    </div>
+
+</div>
+
+{% if lunar_phase.datetime.isoweekday == 7 %}
+    </div>
+    <div class="d-flex flex-row justify-content-center col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3 week ">
+{% endif %}
