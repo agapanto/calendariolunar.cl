@@ -379,3 +379,33 @@ def get_monthly_calendar(reference_datetime=None,
         monthly_calendar.append(day)
 
     return monthly_calendar
+
+
+def get_limit_datetime(reference_datetime=None,
+                       following_phases_count=4,
+                       fix_at_00=True):
+
+    if reference_datetime is None:
+        reference_datetime = datetime.datetime.now()
+
+    if fix_at_00:
+        reference_datetime = reference_datetime.replace(
+            day=1,
+            hour=0,
+            minute=0,
+            second=0
+        )
+    
+    minimum_datetime = datetime.datetime(
+        year=2018,
+        month=1,
+        day=1
+    )
+
+    limit_datetime = reference_datetime + relativedelta(
+        months=7
+    ) - relativedelta (
+        days=1
+    )
+    
+    return minimum_datetime, limit_datetime
