@@ -6,6 +6,7 @@ from django.http import (
     HttpResponse,
     # HttpResponseRedirect,
 )
+from django.shortcuts import render
 from django.template import loader
 from django.views import View
 from dateutil.relativedelta import relativedelta
@@ -140,3 +141,7 @@ class SpecificLunarPhasesView(View):
         }
 
         return HttpResponse(template.render(context, request))
+
+   
+def handler404(request, exception):
+    return render(request,'404.html', status = 404)
