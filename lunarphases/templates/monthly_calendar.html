@@ -3,7 +3,7 @@
 {% load i18n %}
 
 {% block title %}
-	{% trans "Following lunar phases" %} - calendariolunar.cl
+	{% trans "Monthly calendar" %} - calendariolunar.cl
 {% endblock %}
 
 {% block content %}
@@ -12,15 +12,31 @@
 
 			<div class="mb-4 text-center">
 				<div class="btn-group rounded-pill" role="group" aria-label="Basic example">
-					<a class="btn btn-space" href="{% url 'monthly_calendar' year=previous_month_datetime.year month=previous_month_datetime.month %}">
-						<i class="fas fa-chevron-left"></i>
-					</a>
+
+					{% if previous_month_datetime < minimum_datetime %}
+						<div class="btn btn-space disabled">
+							<i class="fas fa-ban"></i>
+						</div>
+					{% else %}
+						<a class="btn btn-space" href="{% url 'monthly_calendar' year=previous_month_datetime.year month=previous_month_datetime.month %}">
+							<i class="fas fa-chevron-left"></i>
+						</a>
+					{% endif %}
+
 					<button type="button" class="btn btn-space disabled">
 						{{ reference_datetime | date:"F Y " }}
 					</button>
-					<a class="btn btn-space" href="{% url 'monthly_calendar' year=following_month_datetime.year month=following_month_datetime.month %}">
-						<i class="fas fa-chevron-right"></i>
-					</a>
+
+					{% if following_month_datetime.month > maximum_datetime.month and following_month_datetime.year >= maximum_datetime.year %}
+						<div class="btn btn-space disabled">
+							<i class="fas fa-ban"></i>
+						</div>
+					{% else %}
+						<a class="btn btn-space" href="{% url 'monthly_calendar' year=following_month_datetime.year month=following_month_datetime.month %}">
+							<i class="fas fa-chevron-right"></i>
+						</a>
+					{% endif %}
+
 				</div>
 			</div>
 
@@ -55,7 +71,11 @@
 
 	<div class="d-flex flex-row justify-content-center col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3 week ">
     {% for lunar_phase in following_lunar_phases %}
-		{% include "components/calendar_card.html" %}
+		{% if lunar_phase.datetime.date <= maximum_datetime.date and lunar_phase.datetime.date >= minimum_datetime.date %}
+			{% include "components/calendar_card.html" %}
+		{% else %}
+			{% include "components/calendar_nocard.html" %}
+		{% endif %}
     {% endfor %}
 	</div>
 
