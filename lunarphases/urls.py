@@ -25,7 +25,7 @@ urlpatterns = [
         name='monthly_calendar'
     ),
     path(
-         _('projected_phase')+'/<int:year>/<int:month>/<int:day>',
+         _('daily_phase')+'/<int:year>/<int:month>/<int:day>',
         SpecificLunarPhasesView.as_view(),
         name='specific_lunar_phase'
     )
