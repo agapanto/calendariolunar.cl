@@ -216,3 +216,57 @@ a {
   border-bottom-right-radius: 50rem;
   padding-right: 1rem;
 }
+
+
+#missing-ship-container-space {
+  animation: fuse 12s infinite linear;
+}
+
+#missing-ship-container {
+  animation: zoom 12s infinite linear;
+}
+
+#missing-ship {
+  font-size: 12rem;
+  animation: rotation 48s infinite linear;
+}
+
+@keyframes rotation {
+  0%{
+    transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(359deg);
+  }
+}
+
+@keyframes zoom {
+  0%{
+    transform: scale(1);
+  }
+  50%{
+    transform: scale(0.7);
+  }
+  100%{
+    transform: scale(1);
+  }
+}
+
+@keyframes fuse {
+  0%{
+    color: #fff;
+    transform: translateY(0);
+
+  }
+  50%{
+    color: #e0e0e0;
+    transform: translateY(-32px);
+
+    transition: color 2s ease-out;
+  }
+  100%{
+    color: #fff;
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
