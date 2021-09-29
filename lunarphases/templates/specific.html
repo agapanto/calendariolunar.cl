@@ -6,6 +6,17 @@
   {% trans 'Daily phase' %} - {{ lunar_phase.datetime | date:"l d/F/Y" }} - calendariolunar.cl
 {% endblock %}
 
+{% block description %}
+  {% if todays_lunar_phase.datetime.date < lunar_phase.datetime.date %}
+    {% trans 'Projected Moon Phase' %}
+  {% elif todays_lunar_phase.datetime.date > lunar_phase.datetime.date %}
+    {% trans 'Past Moon Phase' %}
+  {% else %}
+    {% trans 'Current Moon Phase' %}
+  {% endif %}
+  al {{ lunar_phase.datetime | date:"d/M/Y " }}
+{% endblock %}
+
 {% block content %}
   <div class="row my-4">
 
@@ -99,9 +110,9 @@
 {% block js %}
   {{ block.super }}
   <script
-  			  src="https://code.jquery.com/jquery-3.3.1.min.js"
-  			  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-  			  crossorigin="anonymous">
-  </script>
+		src="https://code.jquery.com/jquery-3.6.0.min.js"
+		integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+		crossorigin="anonymous">
+	</script>
   <script src="{% static 'js/calendar.js' %}"></script>
 {% endblock %}
