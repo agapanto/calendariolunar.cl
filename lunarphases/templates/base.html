@@ -51,6 +51,83 @@
 
       <!-- <link href="{% static 'css/calendariolunar.css' %}" rel="stylesheet"> -->
 
+      <style>
+
+        body{
+          color: white;
+          font-family: sans-serif;
+          background-color: #272a2b;
+        }
+
+        h3{
+          font-size: 2.2rem;
+        }
+
+        h3.title{
+          letter-spacing: -.1rem;
+          text-align: center;
+        }
+
+        .footer{
+          display: block;
+          text-align: center;
+          margin: auto;
+        }
+
+        ul{
+          list-style: disc inside;
+          padding: 0;
+        }
+
+        .moonlight{
+          color: #fcef8d;
+        }
+
+        .moon-left .bg,.moon-right .bg, .moon-left .fg, .moon-right .fg {
+          stroke-width:2px;
+        }
+
+        .moon-left,.moon-right {
+          display:inline-block;
+          /* width:150px; */
+          position:relative;
+          margin:0;
+        }
+        .moon-left .bg,.moon-right .bg {
+          stroke-width:2px;
+        }
+
+        .moon-right .fg {
+          stroke-width:2px;
+        }
+        .moon-left .bg {
+          fill: #45484B;
+        }
+        .moon-left .fg {
+          fill: #fcef8d; transform-origin: 0% 0%;
+        }
+
+        .moon-right .fg {
+          transform: scaleX(1);
+        }
+        .moon-left .fg {
+          transform: scaleX(0) translateX(0);
+        }
+
+        .social-icons{
+          font-size: 2.8rem;
+        }
+
+        .social-icons a{
+          color: white;
+          text-decoration: none;
+        }
+
+        a {
+          color: #a673b3;
+        }
+      </style>
+
     {% endblock %}
 
     {% block js %}
