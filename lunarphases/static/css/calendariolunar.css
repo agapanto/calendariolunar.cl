@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Encode+Sans&family=Staatliches&display=swap');
+
 @font-face {
   font-family: "VCR OSD Mono";
   src: url("fonts/VCR-OSD-MONO.ttf");
@@ -31,7 +33,7 @@ body{
   background-image: url("../stardust.png");
   background-color: #272a2b;
   text-shadow: 0.1rem 0.1rem 0.1rem black;
-  /* transition: opacity 0.4s;   */
+  transition: opacity 0.2s;  
   opacity: 1;
 }
 
