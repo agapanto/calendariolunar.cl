@@ -19,7 +19,14 @@ from django.conf.urls import (
 )
 from django.conf.urls.i18n import i18n_patterns
 from django.contrib import admin
+from django.contrib.sitemaps.views import sitemap
 from django.urls import include, path
+from lunarphases.sitemaps import CalendarioLunarSitemap
+
+
+sitemaps = {
+    'static': CalendarioLunarSitemap,
+}
 
 
 urlpatterns = [
@@ -31,6 +38,14 @@ urlpatterns = [
         'admin/',
         admin.site.urls
     ),
+    path(
+        'sitemap.xml',
+        sitemap,
+        {
+            'sitemaps': sitemaps
+        },
+        name='django.contrib.sitemaps.views.sitemap'
+    )
 ]
 
 urlpatterns += i18n_patterns(
