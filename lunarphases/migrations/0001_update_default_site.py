@@ -1,19 +1,25 @@
-import django.contrib.sites.models
-from django.conf import settings
-from django.contrib.sites.models import Site
-from django.db import migrations, models
+from django.db import migrations
 
 
 class Migration(migrations.Migration):
 
     dependencies = [
+        ('sites', '0001_initial'),
         ('sites', '0002_alter_domain_unique'),
     ]
 
     def forwards_func(apps, schema_editor):
-        default_site = Site.objects.get(id=1)
-        default_site.domain = default_site.name = 'calendariolunar.cl'
-        default_site.save()
+        # We get the model from the versioned app registry;
+        # if we directly import it, it'll be the wrong version
+        Site = apps.get_model("sites", "Site")
+        default_site_id = 1
+        default_site_domain = 'calendariolunar.cl'
+
+        default_site = Site.objects.get_or_create(
+            id=default_site_id,
+            domain=default_site_domain,
+            name=default_site_domain,
+        )
 
     def reverse_func(apps, schema_editor):
         pass
