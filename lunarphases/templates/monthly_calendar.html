@@ -6,6 +6,10 @@
 	{% trans "Monthly calendar" %} - calendariolunar.cl
 {% endblock %}
 
+{% block description %}
+  Calendario Lunar mensual para {{ reference_datetime | date:"F Y " }}
+{% endblock %}
+
 {% block content %}
 	<div class="row my-4">
 		<div class="col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3 text-center">

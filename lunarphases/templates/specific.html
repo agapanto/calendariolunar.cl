@@ -6,6 +6,17 @@
   {% trans 'Daily phase' %} - {{ lunar_phase.datetime | date:"l d/F/Y" }} - calendariolunar.cl
 {% endblock %}
 
+{% block description %}
+  {% if todays_lunar_phase.datetime.date < lunar_phase.datetime.date %}
+    {% trans 'Projected Moon Phase' %}
+  {% elif todays_lunar_phase.datetime.date > lunar_phase.datetime.date %}
+    {% trans 'Past Moon Phase' %}
+  {% else %}
+    {% trans 'Current Moon Phase' %}
+  {% endif %}
+  al {{ lunar_phase.datetime | date:"d/M/Y " }}
+{% endblock %}
+
 {% block content %}
   <div class="row my-4">
 
