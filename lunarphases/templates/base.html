@@ -1,10 +1,15 @@
 {% load static %}
+{% load i18n %}
+
+{% get_current_language as LANGUAGE_CODE %}
+
 <!DOCTYPE html>
 <html>
 
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
+    <meta lang="{{ LANGUAGE_CODE }}">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes, shrink-to-fit=no">
     <meta name="description" content="{% block description %}{% endblock %}">
     
