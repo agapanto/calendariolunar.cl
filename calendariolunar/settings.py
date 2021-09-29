@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+    'django.contrib.sitemaps',
     'lunarphases',
     'debug_toolbar',
     'mathfilters',
@@ -147,3 +149,6 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # debug_toolbar
 INTERNAL_IPS = ['127.0.0.1']
+
+# django sites
+SITE_ID = 1
