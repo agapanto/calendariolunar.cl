@@ -5,7 +5,7 @@ from django.urls import reverse
 
 
 class CalendarioLunarSitemap(Sitemap):
-    priority = 1
+    priority = 0.5
     changefreq = 'daily'
     i18n = True
 
