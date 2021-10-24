@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-19 08:45+0000\n"
-"PO-Revision-Date: 2021-09-19 05:46-0300\n"
+"POT-Creation-Date: 2021-10-24 06:49+0000\n"
+"PO-Revision-Date: 2021-10-24 03:50-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: es\n"
@@ -18,17 +18,17 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 3.0\n"
 
-#: calendariolunar/settings.py:141
+#: calendariolunar/settings.py:143
 msgid "Spanish"
 msgstr "Español"
 
 #: lunarphases/templates/components/menu.html:9
-#: lunarphases/templates/index.html:6
 msgid "Home"
 msgstr "Inicio"
 
 #: lunarphases/templates/components/menu.html:25
 #: lunarphases/templates/following_lunar_phases.html:6
+#: lunarphases/templates/following_lunar_phases.html:10
 msgid "Following lunar phases"
 msgstr "Próximas fases lunares"
 
@@ -49,20 +49,29 @@ msgstr "Nuestro facebook"
 msgid "Our instagram"
 msgstr "Nuestro instagram"
 
-#: lunarphases/templates/following_lunar_phases.html:30
-#: lunarphases/templates/specific.html:91
+#: lunarphases/templates/following_lunar_phases.html:34
+#: lunarphases/templates/specific.html:102
 msgid "See monthly calendar"
 msgstr "Ver calendario mensual"
 
-#: lunarphases/templates/index.html:26 lunarphases/templates/specific.html:35
+#: lunarphases/templates/index.html:6
+msgid "Digital Moon Calendar"
+msgstr "Calendario Lunar Digital"
+
+#: lunarphases/templates/index.html:10
+msgid "Digital Moon Calendar with useful advices for every lunar phase."
+msgstr "Calendario Lunar Digital con consejos útiles para cada fase lunar."
+
+#: lunarphases/templates/index.html:30 lunarphases/templates/specific.html:15
+#: lunarphases/templates/specific.html:46
 msgid "Current Moon Phase"
 msgstr "Fase Lunar Actual"
 
-#: lunarphases/templates/index.html:42 lunarphases/templates/specific.html:53
+#: lunarphases/templates/index.html:46 lunarphases/templates/specific.html:64
 msgid "Crop tips"
 msgstr "Consejos de cultivo"
 
-#: lunarphases/templates/index.html:97
+#: lunarphases/templates/index.html:101
 msgid "See following lunar phases"
 msgstr "Ver próximas fases lunares"
 
@@ -70,11 +79,13 @@ msgstr "Ver próximas fases lunares"
 msgid "Daily phase"
 msgstr "Fase diaria"
 
-#: lunarphases/templates/specific.html:27
+#: lunarphases/templates/specific.html:11
+#: lunarphases/templates/specific.html:38
 msgid "Projected Moon Phase"
 msgstr "Fase Lunar Proyectada"
 
-#: lunarphases/templates/specific.html:31
+#: lunarphases/templates/specific.html:13
+#: lunarphases/templates/specific.html:42
 msgid "Past Moon Phase"
 msgstr "Fase Lunar Pasada"
 
